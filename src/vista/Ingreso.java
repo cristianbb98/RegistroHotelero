@@ -7,19 +7,19 @@ package vista;
 
 /**
  *
- * @author Fausto
+ * @author Toshiba
  */
-public class Registro extends javax.swing.JFrame {
+public class Ingreso extends javax.swing.JFrame {
 
     /**
-     * Creates new form PantallaRegistro
+     * Creates new form Ingreso
      */
-    public Registro() {
+    public Ingreso() {
         initComponents();
         setLocationRelativeTo(null);
-        RegistroVarios regVarios = new RegistroVarios();
-        panelRegistro.add(regVarios);
-        
+        IngresoVarios ingVarios = new IngresoVarios();
+        panelIngreso.add(ingVarios);
+  
     }
 
     /**
@@ -31,13 +31,13 @@ public class Registro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRegistro = new javax.swing.JPanel();
+        panelIngreso = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        panelRegistro.setLayout(new java.awt.CardLayout());
-        getContentPane().add(panelRegistro, "card2");
+        panelIngreso.setLayout(new java.awt.CardLayout());
+        getContentPane().add(panelIngreso, "card2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -59,26 +59,25 @@ public class Registro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registro().setVisible(true);
+                new Ingreso().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel panelRegistro;
+    private javax.swing.JPanel panelIngreso;
     // End of variables declaration//GEN-END:variables
 }
