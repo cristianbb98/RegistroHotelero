@@ -5,10 +5,7 @@
  */
 package vista;
 
-/**
- *
- * @author Fausto
- */
+
 public class Registro extends javax.swing.JFrame {
 
     /**
@@ -16,10 +13,12 @@ public class Registro extends javax.swing.JFrame {
      */
     public Registro() {
         initComponents();
+        setSize(500, 550);
         setLocationRelativeTo(null);
         RegistroVarios regVarios = new RegistroVarios();
         panelRegistro.add(regVarios);
-        
+        dispose();
+
     }
 
     /**

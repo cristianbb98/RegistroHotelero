@@ -1,38 +1,33 @@
-
 package modelo;
 
+public class Cliente extends Persona {
 
-public class Usuario extends Persona{
     private String usuario, clave, alimentacion;
-    private int codigoUsuario;
-    
+    private int codigoCliente;
 
-    public Usuario() {
+    public Cliente() {
     }
 
-    public Usuario(String usuario, String clave, String alimentacion, String nombre, String apellido, String nacionalidad, String ci, String fechadenacimiento, String numeroTelefonico) {
+    public Cliente(String usuario, String clave, String nombre, String apellido, String nacionalidad, String ci, String fechadenacimiento, String numeroTelefonico) {
         super(nombre, apellido, nacionalidad, ci, fechadenacimiento, numeroTelefonico);
         this.usuario = usuario;
         this.clave = clave;
-        this.alimentacion = alimentacion;
-       
-            }
+        
+    }
 
     public int getCodigoUsuario() {
-        return codigoUsuario;
+        return codigoCliente;
     }
 
     public void setCodigoUsuario(int codigoUsuario) {
-        this.codigoUsuario = codigoUsuario;
+        this.codigoCliente = codigoUsuario;
     }
-
-   
 
     public String getUsuario() {
         return usuario;
     }
 
-    public String getClaves() {
+    public String getClave() {
         return clave;
     }
 
@@ -40,18 +35,16 @@ public class Usuario extends Persona{
         return alimentacion;
     }
 
-   
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
-    public void setClaves(String claves) {
-        this.clave = claves;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public void setAlimentacion(String alimentacion) {
         this.alimentacion = alimentacion;
     }
 
-    
 }

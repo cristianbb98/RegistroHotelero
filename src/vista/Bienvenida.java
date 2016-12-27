@@ -29,7 +29,6 @@ public class Bienvenida extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnavanzar = new javax.swing.JButton();
-        btnsalir = new javax.swing.JButton();
         rbtingresar = new javax.swing.JRadioButton();
         rbtregistro = new javax.swing.JRadioButton();
 
@@ -58,8 +57,6 @@ public class Bienvenida extends javax.swing.JFrame {
             }
         });
 
-        btnsalir.setText("Salir");
-
         buttonGroup1.add(rbtingresar);
         rbtingresar.setSelected(true);
         rbtingresar.setText("Ingresar");
@@ -74,18 +71,15 @@ public class Bienvenida extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(jLabel1)
-                .addGap(79, 79, 79))
+                .addGap(79, 81, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(rbtregistro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                        .addComponent(btnavanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rbtregistro)
                     .addComponent(rbtingresar))
-                .addGap(18, 18, 18)
-                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnavanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,13 +87,15 @@ public class Bienvenida extends javax.swing.JFrame {
                 .addGap(132, 132, 132)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addComponent(rbtingresar)
-                .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnavanzar)
-                    .addComponent(rbtregistro)
-                    .addComponent(btnsalir))
-                .addGap(29, 29, 29))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(rbtingresar)
+                        .addGap(7, 7, 7)
+                        .addComponent(rbtregistro)
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnavanzar)
+                        .addGap(44, 44, 44))))
         );
 
         getContentPane().add(jPanel1, "card2");
@@ -143,7 +139,6 @@ public class Bienvenida extends javax.swing.JFrame {
     private com.jtattoo.plaf.acryl.AcrylBorders acrylBorders1;
     private com.jtattoo.plaf.aluminium.AluminiumLookAndFeel aluminiumLookAndFeel1;
     private javax.swing.JButton btnavanzar;
-    private javax.swing.JButton btnsalir;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
