@@ -58,11 +58,6 @@
                                   <Component id="btncliente" min="-2" pref="99" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtci" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="cmbcontinente" min="-2" pref="98" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="cmbpais" min="-2" pref="98" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="txtapellidos" alignment="0" max="32767" attributes="0"/>
                               <Component id="nacimiento" alignment="0" max="32767" attributes="0"/>
                               <Component id="txttelefono" alignment="0" max="32767" attributes="0"/>
@@ -70,6 +65,7 @@
                               <Component id="txtclave1" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
                               <Component id="jProgressBar1" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
                               <Component id="txtclave2" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                              <Component id="nacionalidad" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -108,8 +104,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cmbcontinente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbpais" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nacionalidad" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -262,6 +257,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpiar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnlimpiarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
@@ -273,24 +271,7 @@
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtclave2KeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cmbcontinente">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="Continente"/>
-                <StringItem index="1" value="Africa"/>
-                <StringItem index="2" value="America"/>
-                <StringItem index="3" value="Asia"/>
-                <StringItem index="4" value="Europa"/>
-                <StringItem index="5" value="Ocean&#xed;a"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cmbpais">
+        <Component class="javax.swing.JComboBox" name="nacionalidad">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -301,6 +282,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nacionalidadActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>

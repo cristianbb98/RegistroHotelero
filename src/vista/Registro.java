@@ -8,9 +8,7 @@ package vista;
 
 public class Registro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PantallaRegistro
-     */
+   
     public Registro() {
         initComponents();
         setSize(500, 550);

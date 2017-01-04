@@ -20,10 +20,12 @@ public class RegistroVarios extends javax.swing.JPanel {
     String clave1, clave2;
     Cliente cliente;
     Empleado empleado;
+    String ciudadania;
 
     public RegistroVarios() {
         initComponents();
-
+        Paises paises = new Paises();
+        nacionalidad.setModel(paises.getPaises());
     }
 
     /**
@@ -56,8 +58,7 @@ public class RegistroVarios extends javax.swing.JPanel {
         btnlimpiar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         txtclave2 = new javax.swing.JPasswordField();
-        cmbcontinente = new javax.swing.JComboBox<>();
-        cmbpais = new javax.swing.JComboBox<>();
+        nacionalidad = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         btncliente = new javax.swing.JToggleButton();
         btnadmin = new javax.swing.JToggleButton();
@@ -138,6 +139,11 @@ public class RegistroVarios extends javax.swing.JPanel {
         });
 
         btnlimpiar.setText("Limpiar");
+        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Validacion contraseña:");
 
@@ -147,9 +153,12 @@ public class RegistroVarios extends javax.swing.JPanel {
             }
         });
 
-        cmbcontinente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Continente", "Africa", "America", "Asia", "Europa", "Oceanía" }));
-
-        cmbpais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        nacionalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        nacionalidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nacionalidadActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Tipo:");
 
@@ -195,17 +204,14 @@ public class RegistroVarios extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                                 .addComponent(btncliente, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtci)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cmbcontinente, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cmbpais, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtapellidos)
                             .addComponent(nacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txttelefono)
                             .addComponent(txtusuario)
                             .addComponent(txtclave1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtclave2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtclave2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nacionalidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -233,8 +239,7 @@ public class RegistroVarios extends javax.swing.JPanel {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbcontinente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbpais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -307,7 +312,6 @@ public class RegistroVarios extends javax.swing.JPanel {
         String id = txtci.getText();
         String fechaNacimiento;
         fechaNacimiento = fechaNacimiento();
-        String nacionalidad = "Ecuador";
 
         String telefono = txttelefono.getText();
         String usuario = txtusuario.getText();
@@ -360,17 +364,18 @@ public class RegistroVarios extends javax.swing.JPanel {
             lblconfirmacion.setForeground(Color.green);
             lblconfirmacion.setText("Contraseña correcta");
             if (btncliente.isSelected()) {
-                cliente = new Cliente(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, nacionalidad, id, fechaNacimiento, telefono);
+                cliente = new Cliente(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, ciudadania, id, fechaNacimiento, telefono);
                 cliente.setCodigoUsuario(1);
                 cliente.setAlimentacion("null");
                 Conexion conexion = new Conexion();
                 conexion.obtener();
                 new TablaCliente(conexion).agregarValores(cliente);
+
 //                Reservacion reservacion = new Reservacion(cliente);
 //                reservacion.setVisible(true);
 //                dispose();
             } else {
-                empleado = new Empleado(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, nacionalidad, id, fechaNacimiento, telefono);
+                empleado = new Empleado(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, ciudadania, id, fechaNacimiento, telefono);
 
             }
 
@@ -380,6 +385,7 @@ public class RegistroVarios extends javax.swing.JPanel {
             lblconfirmacion.setForeground(Color.red);
             lblconfirmacion.setText("Contraseña incorrecta");
         }
+
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
@@ -429,6 +435,23 @@ public class RegistroVarios extends javax.swing.JPanel {
 
     }//GEN-LAST:event_txtclave2KeyTyped
 
+    private void nacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nacionalidadActionPerformed
+
+        ciudadania = nacionalidad.getSelectedItem().toString();
+    }//GEN-LAST:event_nacionalidadActionPerformed
+
+    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
+        txtnombres.setText(null);
+        txtapellidos.setText(null);
+        txtci.setText(null);
+        txtclave1.setText(null);
+        txtclave2.setText(null);
+        txttelefono.setText(null);
+        txtusuario.setText(null);
+        nacionalidad.setSelectedIndex(0);
+        nacimiento.setDate(null);
+    }//GEN-LAST:event_btnlimpiarActionPerformed
+
     public void letrasNumeros(char c, java.awt.event.KeyEvent evt, int tipo) {
         switch (tipo) {
             case 1:
@@ -477,8 +500,6 @@ public class RegistroVarios extends javax.swing.JPanel {
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnregistrar;
     private javax.swing.JButton btnvolver;
-    private javax.swing.JComboBox<String> cmbcontinente;
-    private javax.swing.JComboBox<String> cmbpais;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -493,6 +514,7 @@ public class RegistroVarios extends javax.swing.JPanel {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JLabel lblconfirmacion;
     private com.toedter.calendar.JDateChooser nacimiento;
+    private javax.swing.JComboBox<String> nacionalidad;
     private javax.swing.JTextField txtapellidos;
     private javax.swing.JTextField txtci;
     private javax.swing.JPasswordField txtclave1;
