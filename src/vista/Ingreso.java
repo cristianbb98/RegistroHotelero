@@ -16,9 +16,9 @@ public class Ingreso extends javax.swing.JFrame {
      */
     public Ingreso() {
         initComponents();
+        setSize(428,259);
         setLocationRelativeTo(null);
         
-  
     }
 
     /**
@@ -159,7 +159,7 @@ public class Ingreso extends javax.swing.JFrame {
         panelGeneral.setLayout(panelGeneralLayout);
         panelGeneralLayout.setHorizontalGroup(
             panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+            .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
             .addComponent(panelIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(separador)
         );
@@ -185,15 +185,17 @@ public class Ingreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btnregresarActionPerformed
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-        // TODO add your handling code here:
+        Reservacion re = new Reservacion();
+        re.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btningresarActionPerformed
 
     private void rbtclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtclienteActionPerformed
-rbtempleado.setSelected(false);
+        rbtempleado.setSelected(false);
     }//GEN-LAST:event_rbtclienteActionPerformed
 
     private void rbtempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtempleadoActionPerformed
-rbtcliente.setSelected(false);       
+        rbtcliente.setSelected(false);        
     }//GEN-LAST:event_rbtempleadoActionPerformed
 
     /**
