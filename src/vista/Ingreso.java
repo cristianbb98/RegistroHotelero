@@ -16,11 +16,8 @@ public class Ingreso extends javax.swing.JFrame {
      */
     public Ingreso() {
         initComponents();
-        setSize(500,500);
         setLocationRelativeTo(null);
-        IngresoVarios ingVarios = new IngresoVarios();
-        panelIngreso.add(ingVarios);
-        this.setVisible(false);
+        
   
     }
 
@@ -32,17 +29,172 @@ public class Ingreso extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        panelGeneral = new javax.swing.JPanel();
+        panelBotones = new javax.swing.JPanel();
+        btningresar = new javax.swing.JButton();
+        btnregresar = new javax.swing.JButton();
         panelIngreso = new javax.swing.JPanel();
+        txtusuario = new javax.swing.JTextField();
+        txtclave = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        rbtcliente = new javax.swing.JRadioButton();
+        rbtempleado = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        separador = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(330, 279));
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        panelIngreso.setLayout(new java.awt.CardLayout());
-        getContentPane().add(panelIngreso, "card2");
+        panelBotones.setLayout(new java.awt.GridBagLayout());
+
+        btningresar.setText("Ingresar");
+        btningresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btningresarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 92, 12, 0);
+        panelBotones.add(btningresar, gridBagConstraints);
+
+        btnregresar.setText("Regresar");
+        btnregresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregresarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 57, 12, 85);
+        panelBotones.add(btnregresar, gridBagConstraints);
+
+        panelIngreso.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 203;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(38, 32, 0, 40);
+        panelIngreso.add(txtusuario, gridBagConstraints);
+
+        txtclave.setText("jPasswordField1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 203;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 32, 0, 40);
+        panelIngreso.add(txtclave, gridBagConstraints);
+
+        jLabel1.setText("Contraseña:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(21, 40, 0, 0);
+        panelIngreso.add(jLabel1, gridBagConstraints);
+
+        jLabel3.setText("Tipo:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(26, 40, 0, 0);
+        panelIngreso.add(jLabel3, gridBagConstraints);
+
+        rbtcliente.setText("Cliente");
+        rbtcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtclienteActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 25;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 32, 37, 0);
+        panelIngreso.add(rbtcliente, gridBagConstraints);
+
+        rbtempleado.setText("Empleado");
+        rbtempleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtempleadoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 18;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 36, 37, 40);
+        panelIngreso.add(rbtempleado, gridBagConstraints);
+
+        jLabel4.setText("Usuario:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(41, 40, 0, 0);
+        panelIngreso.add(jLabel4, gridBagConstraints);
+
+        javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
+        panelGeneral.setLayout(panelGeneralLayout);
+        panelGeneralLayout.setHorizontalGroup(
+            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+            .addComponent(panelIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(separador)
+        );
+        panelGeneralLayout.setVerticalGroup(
+            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGeneralLayout.createSequentialGroup()
+                .addComponent(panelIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(separador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(panelGeneral, "card2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
+        Bienvenida bienvenida = new Bienvenida();
+        bienvenida.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnregresarActionPerformed
+
+    private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btningresarActionPerformed
+
+    private void rbtclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtclienteActionPerformed
+rbtempleado.setSelected(false);
+    }//GEN-LAST:event_rbtclienteActionPerformed
+
+    private void rbtempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtempleadoActionPerformed
+rbtcliente.setSelected(false);       
+    }//GEN-LAST:event_rbtempleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,6 +232,18 @@ public class Ingreso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btningresar;
+    private javax.swing.JButton btnregresar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel panelBotones;
+    private javax.swing.JPanel panelGeneral;
     private javax.swing.JPanel panelIngreso;
+    private javax.swing.JRadioButton rbtcliente;
+    private javax.swing.JRadioButton rbtempleado;
+    private javax.swing.JSeparator separador;
+    private javax.swing.JPasswordField txtclave;
+    private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
 }

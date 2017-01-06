@@ -32,9 +32,11 @@ public class TablaCliente {
         int valor;
         try {
             //preparar coneccion
-//            PreparedStatement ps = coneccion.getCnx().prepareStatement("INSERT INTO TablaPruebaBD" + " VALUES (0, 3, 4)"); 
-            PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO tablacliente" + " VALUES (" + cliente.getNombre() + "," + cliente.getApellido() + "," + cliente.getNacionalidad() + "," + cliente.getCi() + "," + cliente.getFechadenacimiento() + "," + cliente.getNumeroTelefonico() + "," + cliente.getUsuario() + "," + cliente.getClave() + "," + 1 +")");
-            System.out.println("corecto");
+            PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO tablacliente VALUES (?,?)"); 
+            ps.setString(1,"Cristian");
+            ps.setString(2, "Betancourt");
+//            PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO tablacliente" + " VALUES (" + cliente.getNombre() + "," + cliente.getApellido() + "," + cliente.getNacionalidad() + "," + cliente.getCi() + "," + cliente.getFechadenacimiento() + "," + cliente.getNumeroTelefonico() + "," + cliente.getUsuario() + "," + cliente.getClave() + "," + 1 +")");
+            System.out.println(cliente.getNombre());
 //            "INSERT INTO Customers " + "VALUES (1001, 'Simpson', 'Mr.', 'Springfield', 2001)");
             valor = ps.executeUpdate();
         } catch (SQLException ex) {
