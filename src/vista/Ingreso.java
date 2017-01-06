@@ -16,9 +16,11 @@ public class Ingreso extends javax.swing.JFrame {
      */
     public Ingreso() {
         initComponents();
+        setSize(500,500);
         setLocationRelativeTo(null);
         IngresoVarios ingVarios = new IngresoVarios();
         panelIngreso.add(ingVarios);
+        this.setVisible(false);
   
     }
 

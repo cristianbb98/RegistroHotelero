@@ -12,7 +12,7 @@ public class Paises {
     DefaultComboBoxModel paises = new DefaultComboBoxModel();
 
     public Paises() {
-
+paises.addElement("SELECCIONE UN PAIS");
         paises.addElement("AALAND ISLANDS");
         paises.addElement("AFGHANISTAN");
         paises.addElement("ALBANIA");

@@ -153,7 +153,7 @@ public class RegistroVarios extends javax.swing.JPanel {
             }
         });
 
-        nacionalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        nacionalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sele" }));
         nacionalidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nacionalidadActionPerformed(evt);
@@ -360,7 +360,7 @@ public class RegistroVarios extends javax.swing.JPanel {
 
                 }
             }
-        } else if (validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2)))) {
+        } else if ((validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2)))) && fechaNacimiento != null && ciudadania != null) {
             lblconfirmacion.setForeground(Color.green);
             lblconfirmacion.setText("Contraseña correcta");
             if (btncliente.isSelected()) {
@@ -381,11 +381,16 @@ public class RegistroVarios extends javax.swing.JPanel {
 
             Ingreso ingreso = new Ingreso();
             ingreso.setVisible(true);
-        } else {
+        } else if (!(validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2))))) {
             lblconfirmacion.setForeground(Color.red);
             lblconfirmacion.setText("Contraseña incorrecta");
-        }
 
+        } else if (fechaNacimiento == null) {
+            JOptionPane.showMessageDialog(null, "Fecha de nacimiento incorecta");
+        
+        }else if(ciudadania==null)  {    
+JOptionPane.showMessageDialog(null, "Nacionalidad incorrecta");
+        }
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
@@ -436,8 +441,11 @@ public class RegistroVarios extends javax.swing.JPanel {
     }//GEN-LAST:event_txtclave2KeyTyped
 
     private void nacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nacionalidadActionPerformed
-
-        ciudadania = nacionalidad.getSelectedItem().toString();
+        if (nacionalidad.getSelectedIndex() == 0) {
+            ciudadania = null;
+        } else {
+            ciudadania = nacionalidad.getSelectedItem().toString();
+        }
     }//GEN-LAST:event_nacionalidadActionPerformed
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
@@ -481,16 +489,7 @@ public class RegistroVarios extends javax.swing.JPanel {
         try {
             fechaNacimiento = sdf.format(nacimiento.getDate());
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Fecha de nacimiento incorrecta");
-            Date date = new Date();
-            fechaNacimiento = sdf.format(date);
-            try {
-                date = sdf.parse(fechaNacimiento);
-                nacimiento.setDate(date);
-            } catch (ParseException ex1) {
-
-            }
-
+            fechaNacimiento = null;
         }
         return fechaNacimiento;
     }
