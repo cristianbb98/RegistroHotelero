@@ -1,31 +1,36 @@
-
 package modelo;
 
-
 public class Habitacion extends Edificio {
-    private String piso, codigo;
-    private boolean servicios;
-   private double precioTipo;
-   
-    
 
-    public Habitacion(){
-    
+    private String piso, codigo;
+    private int estadia;
+    private double precioTipo;
+
+    public Habitacion() {
+
     }
 
-    public Habitacion(String piso, String codigo, boolean servicios, double precioTipo) {
+    public Habitacion(String piso, String codigo, double precioTipo) {
         this.piso = piso;
         this.codigo = codigo;
-        this.servicios = servicios;
+
         this.precioTipo = precioTipo;
     }
 
-    public Habitacion(String piso, String codigo, boolean servicios, double precioTipo, String nombre, String direccion, double precio) {
+    public Habitacion(String piso, String codigo, double precioTipo, String nombre, String direccion, double precio) {
         super(nombre, direccion, precio);
         this.piso = piso;
         this.codigo = codigo;
-        this.servicios = servicios;
+
         this.precioTipo = precioTipo;
+    }
+
+    public int getEstadia() {
+        return estadia;
+    }
+
+    public void setEstadia(int estadia) {
+        this.estadia = estadia;
     }
 
     public String getPiso() {
@@ -44,15 +49,7 @@ public class Habitacion extends Edificio {
         this.codigo = codigo;
     }
 
-    public boolean isServicios() {
-        return servicios;
-    }
-
-    public void setServicios(boolean servicios) {
-        this.servicios = servicios;
-    }
-
-    public double getPrecioTipo() {
+       public double getPrecioTipo() {
         return precioTipo;
     }
 
@@ -60,5 +57,4 @@ public class Habitacion extends Edificio {
         this.precioTipo = precioTipo;
     }
 
-    
 }

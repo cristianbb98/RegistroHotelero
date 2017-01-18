@@ -358,9 +358,9 @@ public class Registro extends javax.swing.JFrame {
                 conexion.obtener();
                 new TablaCliente(conexion).agregarValores(cliente);
 
-                //                Reservacion reservacion = new Reservacion(cliente);
-                //                reservacion.setVisible(true);
-                //                dispose();
+                                Ingreso ingreso= new Ingreso();
+                                ingreso.setVisible(true);
+                                dispose();
             } else {
                 empleado = new Empleado(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, ciudadania, id, fechaNacimiento, telefono);
 
@@ -420,7 +420,7 @@ public class Registro extends javax.swing.JFrame {
         letrasNumeros(c = evt.getKeyChar(), evt, 1);
     }//GEN-LAST:event_txtnombresKeyTyped
 
-    public void letrasNumeros(char c, java.awt.event.KeyEvent evt, int tipo) {
+    private void letrasNumeros(char c, java.awt.event.KeyEvent evt, int tipo) {
         switch (tipo) {
             case 1:
                 if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != 32)) {
@@ -444,7 +444,7 @@ public class Registro extends javax.swing.JFrame {
 
     }
 
-    public String fechaNacimiento() {
+    private String fechaNacimiento() {
         String fechaNacimiento;
         try {
             fechaNacimiento = sdf.format(nacimiento.getDate());
@@ -454,7 +454,7 @@ public class Registro extends javax.swing.JFrame {
         return fechaNacimiento;
     }
 
-    public DefaultComboBoxModel nacionalidad() {
+    private DefaultComboBoxModel nacionalidad() {
         DefaultComboBoxModel paises = new DefaultComboBoxModel();
         paises.addElement("SELECCIONE UN PAIS");
         paises.addElement("AALAND ISLANDS");
