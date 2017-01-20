@@ -32,10 +32,11 @@ public class TablaCliente {
         int valor;
         try {
             //preparar coneccion
-            PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO tablacliente VALUES (?,?)"); 
-            ps.setString(1,"Cristian");
-            ps.setString(2, "Betancourt");
-//            PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO tablacliente" + " VALUES (" + cliente.getNombre() + "," + cliente.getApellido() + "," + cliente.getNacionalidad() + "," + cliente.getCi() + "," + cliente.getFechadenacimiento() + "," + cliente.getNumeroTelefonico() + "," + cliente.getUsuario() + "," + cliente.getClave() + "," + 1 +")");
+//            PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO tablacliente VALUES (?,?)"); 
+//            ps.setString(1,"Cristian");
+//            ps.setString(2, "Betancourt");
+//            PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO cliente" + " VALUES (" + cliente.getNombre() + ", " + cliente.getApellido() + ", " + cliente.getNacionalidad() + ", " + cliente.getCi() + ", " + cliente.getFechadenacimiento() + ", " + cliente.getNumeroTelefonico() + ", " + cliente.getUsuario() + ", " + cliente.getClave() + ", " + 1 + ")");
+            PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO cliente" + " VALUES ('Cristian', 'Betancourt', 'ECUADOR´,'1718057688', '09/03/1998', '0984190613', 'usuario','clave',?, 001,?)");
             System.out.println(cliente.getNombre());
 //            "INSERT INTO Customers " + "VALUES (1001, 'Simpson', 'Mr.', 'Springfield', 2001)");
             valor = ps.executeUpdate();

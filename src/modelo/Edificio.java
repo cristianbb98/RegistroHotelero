@@ -1,10 +1,9 @@
-
 package modelo;
 
-
 public class Edificio {
-   private String nombre, direccion;
-           private double precio;
+
+    private String nombre, direccion;
+    private double precio;
 
     public Edificio() {
     }
@@ -30,12 +29,6 @@ public class Edificio {
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public Edificio(String nombre, String direccion, double precio) {
-        this.nombre = nombre;
-        this.direccion = direccion;
         this.precio = precio;
     }
 

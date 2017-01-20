@@ -5,25 +5,19 @@
  */
 package vista;
 
-import java.awt.Component;
-import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
+import modelo.Habitacion;
 
 /**
  *
  * @author Toshiba
  */
-public class Reservacion extends javax.swing.JFrame {
+public class FrameHabitacion extends javax.swing.JInternalFrame {
 
-    private int contador = 0;
-    private FrameEdificio hotel = new FrameEdificio();
-    private FrameHabitacion habitacion = new FrameHabitacion();
-
-    public Reservacion() {
+    /**
+     * Creates new form FrameHabitacion
+     */
+    public FrameHabitacion() {
         initComponents();
-        this.setTitle("RESERVACION");
-        setLocationRelativeTo(null);
-
     }
 
     /**
@@ -35,21 +29,7 @@ public class Reservacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelFechas = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel19 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        llegada = new com.toedter.calendar.JDateChooser();
-        salida = new com.toedter.calendar.JDateChooser();
-        jPanel20 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jPanel21 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         panelHabitaciones = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -58,6 +38,13 @@ public class Reservacion extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jRadioButton11 = new javax.swing.JRadioButton();
+        jRadioButton12 = new javax.swing.JRadioButton();
+        jRadioButton13 = new javax.swing.JRadioButton();
+        jRadioButton14 = new javax.swing.JRadioButton();
+        jRadioButton15 = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -72,13 +59,6 @@ public class Reservacion extends javax.swing.JFrame {
         jRadioButton8 = new javax.swing.JRadioButton();
         jRadioButton9 = new javax.swing.JRadioButton();
         jRadioButton10 = new javax.swing.JRadioButton();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jRadioButton11 = new javax.swing.JRadioButton();
-        jRadioButton12 = new javax.swing.JRadioButton();
-        jRadioButton13 = new javax.swing.JRadioButton();
-        jRadioButton14 = new javax.swing.JRadioButton();
-        jRadioButton15 = new javax.swing.JRadioButton();
         jPanel16 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jRadioButton16 = new javax.swing.JRadioButton();
@@ -93,118 +73,22 @@ public class Reservacion extends javax.swing.JFrame {
         jRadioButton23 = new javax.swing.JRadioButton();
         jRadioButton24 = new javax.swing.JRadioButton();
         jRadioButton25 = new javax.swing.JRadioButton();
-        jPanel18 = new javax.swing.JPanel();
-        panelServicios = new javax.swing.JPanel();
-        panelRevisar = new javax.swing.JPanel();
-        panelGeneral = new javax.swing.JPanel();
-        panelNombre = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
-        panelFechas.setLayout(new javax.swing.BoxLayout(panelFechas, javax.swing.BoxLayout.Y_AXIS));
-
-        jPanel1.setPreferredSize(new java.awt.Dimension(100, 200));
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
-
-        jPanel19.setPreferredSize(new java.awt.Dimension(338, 10));
-
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Fecha de llegada");
-
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Fecha de salida");
-
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(llegada, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(salida, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(46, 46, 46))
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(llegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(salida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24))
-        );
-
-        jPanel1.add(jPanel19);
-
-        jPanel20.setLayout(new javax.swing.BoxLayout(jPanel20, javax.swing.BoxLayout.Y_AXIS));
-
-        jLabel12.setText("jLabel12");
-        jPanel20.add(jLabel12);
-
-        jButton3.setText("Avanzar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel21.add(jButton3);
-
-        jButton4.setText("Regresar");
-        jPanel21.add(jButton4);
-
-        jPanel20.add(jPanel21);
-
-        jPanel1.add(jPanel20);
-
-        panelFechas.add(jPanel1);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(634, 439));
 
         panelHabitaciones.setPreferredSize(new java.awt.Dimension(610, 479));
-        panelHabitaciones.setLayout(new javax.swing.BoxLayout(panelHabitaciones, javax.swing.BoxLayout.Y_AXIS));
-
-        jPanel2.setPreferredSize(new java.awt.Dimension(100, 40));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 72, Short.MAX_VALUE)
-        );
-
-        panelHabitaciones.add(jPanel2);
-
-        jPanel3.setPreferredSize(new java.awt.Dimension(100, 200));
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+        panelHabitaciones.setLayout(new java.awt.CardLayout());
 
         jPanel13.setMinimumSize(new java.awt.Dimension(300, 400));
         jPanel13.setPreferredSize(new java.awt.Dimension(0, 0));
         jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel5.setPreferredSize(new java.awt.Dimension(300, 10));
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 45, 5));
 
-        jLabel14.setText("       ");
+        jLabel14.setText("Habitacion");
         jPanel5.add(jLabel14);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -229,9 +113,54 @@ public class Reservacion extends javax.swing.JFrame {
 
         jPanel13.add(jPanel5);
 
+        jPanel15.setPreferredSize(new java.awt.Dimension(300, 20));
+        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
+
+        jLabel3.setText("Piso #1:        ");
+        jPanel15.add(jLabel3);
+
+        jRadioButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton11ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(jRadioButton11);
+
+        jRadioButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton12ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(jRadioButton12);
+
+        jRadioButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton13ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(jRadioButton13);
+
+        jRadioButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton14ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(jRadioButton14);
+
+        jRadioButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton15ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(jRadioButton15);
+
+        jPanel13.add(jPanel15);
+
+        jPanel4.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel4.setPreferredSize(new java.awt.Dimension(300, 20));
         jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        jLabel1.setText("Piso#1:");
+        jLabel1.setText("Piso #2:        ");
         jPanel4.add(jLabel1);
 
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -272,9 +201,10 @@ public class Reservacion extends javax.swing.JFrame {
 
         jPanel13.add(jPanel4);
 
+        jPanel14.setPreferredSize(new java.awt.Dimension(300, 20));
         jPanel14.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        jLabel2.setText("Piso#2:");
+        jLabel2.setText("Piso #3:        ");
         jPanel14.add(jLabel2);
 
         jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -314,51 +244,10 @@ public class Reservacion extends javax.swing.JFrame {
 
         jPanel13.add(jPanel14);
 
-        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
-
-        jLabel3.setText("Piso#3:");
-        jPanel15.add(jLabel3);
-
-        jRadioButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton11ActionPerformed(evt);
-            }
-        });
-        jPanel15.add(jRadioButton11);
-
-        jRadioButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton12ActionPerformed(evt);
-            }
-        });
-        jPanel15.add(jRadioButton12);
-
-        jRadioButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton13ActionPerformed(evt);
-            }
-        });
-        jPanel15.add(jRadioButton13);
-
-        jRadioButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton14ActionPerformed(evt);
-            }
-        });
-        jPanel15.add(jRadioButton14);
-
-        jRadioButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton15ActionPerformed(evt);
-            }
-        });
-        jPanel15.add(jRadioButton15);
-
-        jPanel13.add(jPanel15);
-
+        jPanel16.setPreferredSize(new java.awt.Dimension(300, 20));
         jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        jLabel4.setText("Piso#4:");
+        jLabel4.setText("Piso #4:        ");
         jPanel16.add(jLabel4);
 
         jRadioButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -398,9 +287,10 @@ public class Reservacion extends javax.swing.JFrame {
 
         jPanel13.add(jPanel16);
 
+        jPanel17.setPreferredSize(new java.awt.Dimension(300, 20));
         jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        jLabel13.setText("Psio#5:");
+        jLabel13.setText("Piso #5:       ");
         jPanel17.add(jLabel13);
 
         jRadioButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -440,69 +330,20 @@ public class Reservacion extends javax.swing.JFrame {
 
         jPanel13.add(jPanel17);
 
-        jPanel3.add(jPanel13);
+        panelHabitaciones.add(jPanel13, "card2");
 
-        panelHabitaciones.add(jPanel3);
-        panelHabitaciones.add(jPanel18);
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        panelGeneral.setPreferredSize(new java.awt.Dimension(634, 440));
-        panelGeneral.setLayout(new java.awt.CardLayout());
-        getContentPane().add(panelGeneral, java.awt.BorderLayout.CENTER);
-
-        jLabel15.setText("CRISTIAN BETANCOURT");
-        panelNombre.add(jLabel15);
-
-        getContentPane().add(panelNombre, java.awt.BorderLayout.PAGE_START);
-
-        jMenu3.setText("Reservar");
-
-        jMenu5.setText("Nuevo");
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Hoteles");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem1);
-
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setText("Habitaciones");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem6);
-
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem7.setText("Servicios");
-        jMenu5.add(jMenuItem7);
-
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem8.setText("Guardar");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem8);
-
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText("Limpiar");
-        jMenu5.add(jMenuItem3);
-
-        jMenu3.add(jMenu5);
-
-        jMenuItem2.setText("Revisar");
-        jMenu3.add(jMenuItem2);
-
-        jMenuBar2.add(jMenu3);
-
-        setJMenuBar(jMenuBar2);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelHabitaciones, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -516,7 +357,7 @@ public class Reservacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
+       Habitacion cuarto = new Habitacion();
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
@@ -552,7 +393,7 @@ public class Reservacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton11ActionPerformed
 
     private void jRadioButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton12ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jRadioButton12ActionPerformed
 
     private void jRadioButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton13ActionPerformed
@@ -607,86 +448,11 @@ public class Reservacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton25ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
-        int diaLlegada = Integer.parseInt(sdf2.format(llegada.getDate()));
-        int diaSalida = Integer.parseInt(sdf2.format(salida.getDate()));
-        int diasTotal = diaSalida - diaLlegada;
-        jLabel12.setText(diasTotal + "");
-        if (diasTotal > 7) {
-
-            JOptionPane.showMessageDialog(null, "Reservaciones máxima de 7 días");
-
-        } else {
-
-        }
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        panelGeneral.add(hotel);
-        contador++;
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        if (contador == 1) {
-            panelGeneral.remove(hotel);
-            panelGeneral.add(habitacion);
-
-        } else {
-            JOptionPane.showMessageDialog(null, "SELECCIONE UN HOTEL PARA EL HOSPEDAJE");
-        }
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Reservacion().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -695,27 +461,11 @@ public class Reservacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JRadioButton jRadioButton1;
@@ -743,13 +493,6 @@ public class Reservacion extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
-    private com.toedter.calendar.JDateChooser llegada;
-    private javax.swing.JPanel panelFechas;
-    private javax.swing.JPanel panelGeneral;
     private javax.swing.JPanel panelHabitaciones;
-    private javax.swing.JPanel panelNombre;
-    private javax.swing.JPanel panelRevisar;
-    private javax.swing.JPanel panelServicios;
-    private com.toedter.calendar.JDateChooser salida;
     // End of variables declaration//GEN-END:variables
 }
