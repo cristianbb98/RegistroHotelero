@@ -60,8 +60,8 @@ public class Registro extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         btncliente = new javax.swing.JToggleButton();
         btnadmin = new javax.swing.JToggleButton();
-        nacimiento = new com.toedter.calendar.JDateChooser();
         lblconfirmacion = new javax.swing.JLabel();
+        nacimiento = new com.toedter.calendar.JDateChooser();
         panelBotones = new javax.swing.JPanel();
         btnvolver = new javax.swing.JButton();
         btnlimpiar = new javax.swing.JButton();
@@ -180,8 +180,8 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         panelDatos.add(btnadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 197, -1, -1));
-        panelDatos.add(nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 135, 232, -1));
         panelDatos.add(lblconfirmacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 338, 153, 11));
+        panelDatos.add(nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 230, -1));
 
         panelBotones.setLayout(new java.awt.GridBagLayout());
 

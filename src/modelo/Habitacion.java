@@ -10,14 +10,16 @@ public class Habitacion extends Edificio {
 
     }
 
-    public Habitacion(String piso, String codigo, int estadia, double precioTipo) {
+    public Habitacion(String piso, String codigo, int estadia, double precioTipo, String nombre, String direccion, double precio) {
+        super(nombre, direccion, precio);
         this.piso = piso;
         this.codigo = codigo;
         this.estadia = estadia;
         this.precioTipo = precioTipo;
     }
+    
 
-    public String getPiso() {
+      public String getPiso() {
         return piso;
     }
 

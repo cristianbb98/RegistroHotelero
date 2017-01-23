@@ -11,14 +11,11 @@ package vista;
  */
 public class Ingreso extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Ingreso
-     */
     public Ingreso() {
         initComponents();
-        setSize(428,259);
+        setSize(428, 259);
         setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -195,7 +192,7 @@ public class Ingreso extends javax.swing.JFrame {
     }//GEN-LAST:event_rbtclienteActionPerformed
 
     private void rbtempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtempleadoActionPerformed
-        rbtcliente.setSelected(false);        
+        rbtcliente.setSelected(false);
     }//GEN-LAST:event_rbtempleadoActionPerformed
 
     /**

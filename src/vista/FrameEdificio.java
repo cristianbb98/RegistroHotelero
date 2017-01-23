@@ -5,6 +5,7 @@
  */
 package vista;
 
+import controlador.LeerEscribirArchivos;
 import modelo.Edificio;
 
 /**
@@ -13,16 +14,13 @@ import modelo.Edificio;
  */
 public class FrameEdificio extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Ventana
-     */
+    
     public FrameEdificio() {
         initComponents();
         this.setTitle("SELECCIONE UN HOTEL");
 
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -126,7 +124,11 @@ public class FrameEdificio extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void atacamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atacamesActionPerformed
-        Edificio hotelAtacames = new Edificio();
+//        controlador.LeerEscribirArchivos leer = new LeerEscribirArchivos();
+//        leer.leerArchivos("edificios");
+
+        new Reservacion().cambioFrame(2);
+
     }//GEN-LAST:event_atacamesActionPerformed
 
     private void tonsupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tonsupaActionPerformed
