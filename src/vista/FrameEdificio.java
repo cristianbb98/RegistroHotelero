@@ -6,7 +6,7 @@
 package vista;
 
 import controlador.LeerEscribirArchivos;
-import modelo.Edificio;
+
 
 /**
  *

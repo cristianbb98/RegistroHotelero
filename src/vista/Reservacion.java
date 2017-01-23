@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class Reservacion extends javax.swing.JFrame {
 
     private int contador = 0;
-    private FrameEdificio hotel=new FrameEdificio();
+    private FrameEdificio hotel = new FrameEdificio();
     private FrameHabitacion habitacion = new FrameHabitacion();
 
     public Reservacion() {
@@ -23,7 +23,6 @@ public class Reservacion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.

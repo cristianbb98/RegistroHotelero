@@ -1,20 +1,22 @@
 package modelo;
 
+import controlador.LeerEscribirArchivos;
 import java.util.HashMap;
+import java.util.List;
 
 public class Edificio {
 
     public String nombre, direccion;
-    public double precio;
+    public final double PRECIO = 20.00;
     private HashMap<Habitacion, Cliente> datos = new HashMap<>();
 
     public Edificio() {
     }
 
-    public Edificio(String nombre, String direccion, double precio) {
+    public Edificio(String nombre, String direccion) {
         this.nombre = nombre;
         this.direccion = direccion;
-        this.precio = precio;
+
     }
 
     public String getNombre() {
@@ -34,20 +36,20 @@ public class Edificio {
     }
 
     public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
+        return PRECIO;
     }
 
     public HashMap<Habitacion, Cliente> getDatos() {
         return datos;
     }
 
-    public void setDatos(HashMap<Habitacion, Cliente> datos) {
-
-        this.datos = datos;
-    }
+    public void setDatos(Habitacion habitacion, Cliente cliente) {
+        datos.put(habitacion, cliente);
+        }
+    
+    public void setHash(Habitacion habitacion) {
+        datos.put(habitacion, null);
+        
+        }
 
 }

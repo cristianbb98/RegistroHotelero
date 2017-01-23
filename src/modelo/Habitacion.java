@@ -1,23 +1,23 @@
 package modelo;
 
-public class Habitacion extends Edificio {
+import java.io.Serializable;
+
+public class Habitacion implements Serializable{
 
     private String piso, codigo;
     private int estadia;
-    private double precioTipo;
+    public final double PRECIO=30.00;
 
     public Habitacion() {
 
     }
 
-    public Habitacion(String piso, String codigo, int estadia, double precioTipo, String nombre, String direccion, double precio) {
-        super(nombre, direccion, precio);
+    public Habitacion(String piso, String codigo, int estadia) {
         this.piso = piso;
         this.codigo = codigo;
         this.estadia = estadia;
-        this.precioTipo = precioTipo;
+     
     }
-    
 
       public String getPiso() {
         return piso;
@@ -44,11 +44,7 @@ public class Habitacion extends Edificio {
     }
 
     public double getPrecioTipo() {
-        return precioTipo;
+        return PRECIO;
     }
 
-    public void setPrecioTipo(double precioTipo) {
-        this.precioTipo = precioTipo;
     }
-
-}
