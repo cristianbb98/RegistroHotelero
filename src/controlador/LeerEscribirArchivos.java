@@ -6,13 +6,13 @@ import java.util.*;
 import java.util.logging.*;
 import modelo.Edificio;
 
-public class LeerEscribirArchivos {
+public class LeerEscribirArchivos implements Serializable{
 
-    public void escribirArchivos(List lista, String nombreArchivo) {
+    public void escribirArchivos(HashMap hash, String nombreArchivo) {
         try {
             FileOutputStream fos = new FileOutputStream("src" + File.separatorChar + "archivos" + File.separatorChar + nombreArchivo + ".archivos");
             ObjectOutputStream ous = new ObjectOutputStream(fos); // lo que pondre en mi archivo
-            ous.writeObject(lista);
+            ous.writeObject(hash);
             ous.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(LeerEscribirArchivos.class.getName()).log(Level.SEVERE, null, ex);

@@ -3,7 +3,7 @@ package modelo;
 
 
 public class Persona {
-    private String nombre, apellido , nacionalidad, ci, fechadenacimiento, numeroTelefonico;
+    String nombre, apellido , nacionalidad, ci, fechadenacimiento, numeroTelefonico;
 
     public Persona(String nombre, String apellido,String nacionalidad, String ci, String fechadenacimiento, String numeroTelefonico) {
         this.nombre = nombre;

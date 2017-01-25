@@ -1,7 +1,8 @@
-
 package vista;
+
 import com.jtattoo.plaf.acryl.AcrylLookAndFeel;
 import javax.swing.*;
+
 public class Bienvenida extends javax.swing.JFrame {
 
     /**
@@ -104,28 +105,25 @@ public class Bienvenida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnavanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnavanzarActionPerformed
-     if(rbtregistro.isSelected()){
-     Registro registro= new Registro();
-     registro.setVisible(true);
-     dispose();
-     } else{
-     Ingreso ingreso = new Ingreso();
-     ingreso.setVisible(true);
-     dispose();
-     }
+        if (rbtregistro.isSelected()) {
+            Registro registro = new Registro();
+            registro.setVisible(true);
+            dispose();
+        } else {
+            Ingreso ingreso = new Ingreso();
+            ingreso.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_btnavanzarActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-      try{
-      UIManager.setLookAndFeel(new AcrylLookAndFeel());
-      }catch(Exception ex){
-          System.out.println("error");
-      } 
-       
-       
+        try {
+            UIManager.setLookAndFeel(new AcrylLookAndFeel());
+        } catch (Exception ex) {
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

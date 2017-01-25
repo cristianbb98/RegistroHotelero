@@ -1,6 +1,8 @@
 package modelo;
 
-public class Cliente extends Persona {
+import java.io.Serializable;
+
+public class Cliente extends Persona implements Serializable{
 
     private String usuario, clave, alimentacion;
     private int codigoCliente;
@@ -47,4 +49,10 @@ public class Cliente extends Persona {
         this.alimentacion = alimentacion;
     }
 
+    @Override
+    public String toString() {
+        return usuario;
+    }
+
+   
 }

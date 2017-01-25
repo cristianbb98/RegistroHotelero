@@ -1,46 +1,56 @@
 package modelo;
 
 import controlador.LeerEscribirArchivos;
+import java.io.Serializable;
 import java.util.*;
 
-public class Creacion {
+public class Creacion implements Serializable{
 
     public static void main(String[] args) {
-        List habitaciones = new ArrayList<>();
+//        List habitaciones = new ArrayList<>();
+//
+//        habitaciones.add(new Habitacion("Primero", "100", 0));
+//        habitaciones.add(new Habitacion("Primero", "101", 0));
+//        habitaciones.add(new Habitacion("Primero", "102", 0));
+//        habitaciones.add(new Habitacion("Primero", "103", 0));
+//        habitaciones.add(new Habitacion("Primero", "104", 0));
+//        habitaciones.add(new Habitacion("Primero", "105", 0));
+//        habitaciones.add(new Habitacion("Segundo", "200", 0));
+//        habitaciones.add(new Habitacion("Segundo", "201", 0));
+//        habitaciones.add(new Habitacion("Segundo", "202", 0));
+//        habitaciones.add(new Habitacion("Segundo", "203", 0));
+//        habitaciones.add(new Habitacion("Segundo", "204", 0));
+//        habitaciones.add(new Habitacion("Segundo", "205", 0));
+//        habitaciones.add(new Habitacion("Tercero", "300", 0));
+//        habitaciones.add(new Habitacion("Tercero", "301", 0));
+//        habitaciones.add(new Habitacion("Tercero", "302", 0));
+//        habitaciones.add(new Habitacion("Tercero", "303", 0));
+//        habitaciones.add(new Habitacion("Tercero", "304", 0));
+//        habitaciones.add(new Habitacion("Tercero", "305", 0));
+//        habitaciones.add(new Habitacion("Cuarto", "400", 0));
+//        habitaciones.add(new Habitacion("Cuarto", "401", 0));
+//        habitaciones.add(new Habitacion("Cuarto", "402", 0));
+//        habitaciones.add(new Habitacion("Cuarto", "403", 0));
+//        habitaciones.add(new Habitacion("Cuarto", "404", 0));
+//        habitaciones.add(new Habitacion("Cuarto", "405", 0));
+//        habitaciones.add(new Habitacion("Quinto", "500", 0));
+//        habitaciones.add(new Habitacion("Quinto", "501", 0));
+//        habitaciones.add(new Habitacion("Quinto", "502", 0));
+//        habitaciones.add(new Habitacion("Quinto", "503", 0));
+//        habitaciones.add(new Habitacion("Quinto", "504", 0));
+//        habitaciones.add(new Habitacion("Quinto", "505", 0));
+//
+//        LeerEscribirArchivos leer = new LeerEscribirArchivos();
+////        leer.escribirArchivos(habitaciones, "habitaciones");
 
-        habitaciones.add(new Habitacion("Primero", "100", 0));
-        habitaciones.add(new Habitacion("Primero", "101", 0));
-        habitaciones.add(new Habitacion("Primero", "102", 0));
-        habitaciones.add(new Habitacion("Primero", "103", 0));
-        habitaciones.add(new Habitacion("Primero", "104", 0));
-        habitaciones.add(new Habitacion("Primero", "105", 0));
-        habitaciones.add(new Habitacion("Segundo", "200", 0));
-        habitaciones.add(new Habitacion("Segundo", "201", 0));
-        habitaciones.add(new Habitacion("Segundo", "202", 0));
-        habitaciones.add(new Habitacion("Segundo", "203", 0));
-        habitaciones.add(new Habitacion("Segundo", "204", 0));
-        habitaciones.add(new Habitacion("Segundo", "205", 0));
-        habitaciones.add(new Habitacion("Tercero", "300", 0));
-        habitaciones.add(new Habitacion("Tercero", "301", 0));
-        habitaciones.add(new Habitacion("Tercero", "302", 0));
-        habitaciones.add(new Habitacion("Tercero", "303", 0));
-        habitaciones.add(new Habitacion("Tercero", "304", 0));
-        habitaciones.add(new Habitacion("Tercero", "305", 0));
-        habitaciones.add(new Habitacion("Cuarto", "400", 0));
-        habitaciones.add(new Habitacion("Cuarto", "401", 0));
-        habitaciones.add(new Habitacion("Cuarto", "402", 0));
-        habitaciones.add(new Habitacion("Cuarto", "403", 0));
-        habitaciones.add(new Habitacion("Cuarto", "404", 0));
-        habitaciones.add(new Habitacion("Cuarto", "405", 0));
-        habitaciones.add(new Habitacion("Quinto", "500", 0));
-        habitaciones.add(new Habitacion("Quinto", "501", 0));
-        habitaciones.add(new Habitacion("Quinto", "502", 0));
-        habitaciones.add(new Habitacion("Quinto", "503", 0));
-        habitaciones.add(new Habitacion("Quinto", "504", 0));
-        habitaciones.add(new Habitacion("Quinto", "505", 0));
+HashMap<String, Cliente> aux = new HashMap<>();
+LeerEscribirArchivos lec = new LeerEscribirArchivos();
 
-        LeerEscribirArchivos leer = new LeerEscribirArchivos();
-        leer.escribirArchivos(habitaciones, "habitaciones");
+aux=(HashMap<String, Cliente>)lec.leerArchivos("Clientes");
+Cliente cliente = aux.get("cristianbb98");
+        System.out.println(cliente.getNombre()+"");
+        
+
 
 //
 //        Habitacion num10 = new Habitacion("Primero", "100", 0);

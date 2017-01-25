@@ -1,24 +1,32 @@
 package vista;
 
 import controlador.Conexion;
-import controlador.TablaCliente;
+import controlador.LeerEscribirArchivos;
+import controlador.Tabla;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.*;
 
-public class Registro extends javax.swing.JFrame {
+public class Registro extends JFrame {
 
-    controlador.Validacion validar = new controlador.Validacion();
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
-    String confirmacion = validar.encriptaEnMD5(validar.encriptaEnMD5("12345"));
-    String clave1, clave2;
-    Cliente cliente;
-    Empleado empleado;
-    String ciudadania;
+    private Date date = new Date();
+
+    private Conexion conexion = new Conexion();
+    private controlador.Validacion validar = new controlador.Validacion();
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+    private String confirmacion = validar.encriptaEnMD5(validar.encriptaEnMD5("12345"));
+    private String clave1, clave2;
+    public Cliente cliente;
+    public Empleado empleado;
+    private String ciudadania;
+    private LeerEscribirArchivos archivos = new LeerEscribirArchivos();
+    private HashMap<String, Object> usuarios = new HashMap<>();
 
     public Registro() {
         initComponents();
@@ -299,6 +307,7 @@ public class Registro extends javax.swing.JFrame {
         String id = txtci.getText();
         String fechaNacimiento;
         fechaNacimiento = fechaNacimiento();
+        int codigo;
 
         String telefono = txttelefono.getText();
         String usuario = txtusuario.getText();
@@ -322,28 +331,28 @@ public class Registro extends javax.swing.JFrame {
 
                 switch (camposVacio) {
                     case 0:
-                    txtnombres.setBackground(Color.red);
-                    break;
+                        txtnombres.setBackground(Color.red);
+                        break;
                     case 1:
-                    txtapellidos.setBackground(Color.red);
-                    break;
+                        txtapellidos.setBackground(Color.red);
+                        break;
                     case 2:
-                    txtci.setBackground(Color.red);
-                    break;
+                        txtci.setBackground(Color.red);
+                        break;
                     case 3:
-                    txttelefono.setBackground(Color.red);
-                    break;
+                        txttelefono.setBackground(Color.red);
+                        break;
                     case 4:
-                    txtusuario.setBackground(Color.red);
-                    break;
+                        txtusuario.setBackground(Color.red);
+                        break;
                     case 5:
-                    txtclave1.setBackground(Color.red);
-                    break;
+                        txtclave1.setBackground(Color.red);
+                        break;
                     case 6:
-                    txtclave2.setBackground(Color.red);
-                    lblconfirmacion.setForeground(Color.red);
-                    lblconfirmacion.setText("Contraseña incorrecta");
-                    break;
+                        txtclave2.setBackground(Color.red);
+                        lblconfirmacion.setForeground(Color.red);
+                        lblconfirmacion.setText("Contraseña incorrecta");
+                        break;
 
                 }
             }
@@ -352,22 +361,20 @@ public class Registro extends javax.swing.JFrame {
             lblconfirmacion.setText("Contraseña correcta");
             if (btncliente.isSelected()) {
                 cliente = new Cliente(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, ciudadania, id, fechaNacimiento, telefono);
-                cliente.setCodigoUsuario(1);
-                cliente.setAlimentacion("null");
-                Conexion conexion = new Conexion();
                 conexion.obtener();
-                new TablaCliente(conexion).agregarValores(cliente);
-
-                                Ingreso ingreso= new Ingreso();
-                                ingreso.setVisible(true);
-                                dispose();
+                new Tabla(conexion).agregarValores((Object) cliente, 1);
+                Ingreso ingreso = new Ingreso();
+                ingreso.setVisible(true);
+                dispose();
             } else {
                 empleado = new Empleado(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, ciudadania, id, fechaNacimiento, telefono);
+                conexion.obtener();
+                new Tabla(conexion).agregarValores((Object) empleado, 4);
+                Ingreso ingreso = new Ingreso();
+                ingreso.setVisible(true);
 
             }
 
-            Ingreso ingreso = new Ingreso();
-            ingreso.setVisible(true);
         } else if (!(validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2))))) {
             lblconfirmacion.setForeground(Color.red);
             lblconfirmacion.setText("Contraseña incorrecta");
@@ -378,6 +385,8 @@ public class Registro extends javax.swing.JFrame {
         } else if (ciudadania == null) {
             JOptionPane.showMessageDialog(null, "Nacionalidad incorrecta");
         }
+
+
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
@@ -446,7 +455,13 @@ public class Registro extends javax.swing.JFrame {
 
     private String fechaNacimiento() {
         String fechaNacimiento;
+
         try {
+            if (nacimiento.getDate().after(date)) {
+
+                JOptionPane.showMessageDialog(null, "Fecha de nacimiento incorrecta");
+                fechaNacimiento = null;
+            }
             fechaNacimiento = sdf.format(nacimiento.getDate());
         } catch (Exception ex) {
             fechaNacimiento = null;

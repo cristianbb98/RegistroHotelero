@@ -41,11 +41,11 @@ public class Validacion {
 
     public int validarClave(String clave) {
         int valorbarra = 0;
-        if (clave.length() > 8) {
+        if (clave.length() > 10) {
             valorbarra = 100;
-        } else if (clave.length() > 0 && clave.length() < 5) {
+        } else if (clave.length() > 0 && clave.length() < 4) {
             valorbarra = 25;
-        } else if (clave.length() > 4 && clave.length() < 8) {
+        } else if (clave.length() > 3 && clave.length() < 10) {
             valorbarra = 66;
         }
 
