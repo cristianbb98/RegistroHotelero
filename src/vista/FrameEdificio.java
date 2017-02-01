@@ -5,8 +5,6 @@
  */
 package vista;
 
-import controlador.LeerEscribirArchivos;
-
 
 /**
  *
@@ -127,7 +125,7 @@ public class FrameEdificio extends javax.swing.JInternalFrame {
 //        controlador.LeerEscribirArchivos leer = new LeerEscribirArchivos();
 //        leer.leerArchivos("edificios");
 
-        new Reservacion().cambioFrame(2);
+//        new Reservacion().cambioFrame(2);
 
     }//GEN-LAST:event_atacamesActionPerformed
 

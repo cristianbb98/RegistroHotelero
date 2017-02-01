@@ -106,7 +106,7 @@ public class Bienvenida extends javax.swing.JFrame {
 
     private void btnavanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnavanzarActionPerformed
         if (rbtregistro.isSelected()) {
-            Registro registro = new Registro();
+            Registros registro = new Registros();
             registro.setVisible(true);
             dispose();
         } else {

@@ -1,6 +1,5 @@
 package modelo;
 
-import controlador.LeerEscribirArchivos;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,17 +38,7 @@ public class Edificio {
         return PRECIO;
     }
 
-    public HashMap<Habitacion, Cliente> getDatos() {
-        return datos;
-    }
 
-    public void setDatos(Habitacion habitacion, Cliente cliente) {
-        datos.put(habitacion, cliente);
-        }
+
     
-    public void setHash(Habitacion habitacion) {
-        datos.put(habitacion, null);
-        
-        }
-
-}
+   }

@@ -1,19 +1,19 @@
 package vista;
 
 import controlador.Conexion;
-import controlador.LeerEscribirArchivos;
+
 import controlador.Tabla;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Date;
+
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.*;
 
-public class Registro extends JFrame {
+public class Registros extends javax.swing.JFrame {
 
     private Date date = new Date();
 
@@ -25,10 +25,9 @@ public class Registro extends JFrame {
     public Cliente cliente;
     public Empleado empleado;
     private String ciudadania;
-    private LeerEscribirArchivos archivos = new LeerEscribirArchivos();
-    private HashMap<String, Object> usuarios = new HashMap<>();
+    private Date date2 = new Date();
 
-    public Registro() {
+    public Registros() {
         initComponents();
         setLocationRelativeTo(null);
         nacionalidad.setModel(nacionalidad());
@@ -455,7 +454,8 @@ public class Registro extends JFrame {
 
     private String fechaNacimiento() {
         String fechaNacimiento;
-
+        date = new Date();
+              
         try {
             if (nacimiento.getDate().after(date)) {
 
@@ -730,13 +730,13 @@ public class Registro extends JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -744,7 +744,7 @@ public class Registro extends JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registro().setVisible(true);
+                new Registros().setVisible(true);
             }
         });
     }

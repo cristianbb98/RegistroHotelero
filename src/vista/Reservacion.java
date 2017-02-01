@@ -16,11 +16,14 @@ public class Reservacion extends javax.swing.JFrame {
     private int contador = 0;
     private FrameEdificio hotel = new FrameEdificio();
     private FrameHabitacion habitacion = new FrameHabitacion();
+    private FrameEstadia estadia = new FrameEstadia();
+    private FrameAlimentacion alimentacion = new FrameAlimentacion();
+    private FrameRevisar revisar = new FrameRevisar();
 
     public Reservacion() {
         initComponents();
         this.setTitle("RESERVACION");
-        setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
 
     }
 
@@ -35,15 +38,17 @@ public class Reservacion extends javax.swing.JFrame {
 
         panelGeneral = new javax.swing.JPanel();
         panelNombre = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuHotel = new javax.swing.JMenu();
+        opcionHotel = new javax.swing.JMenuItem();
+        opcHabitaciones = new javax.swing.JMenuItem();
+        opcEstadia = new javax.swing.JMenuItem();
+        opcAlimentacion = new javax.swing.JMenuItem();
+        opcGuardar = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,52 +57,71 @@ public class Reservacion extends javax.swing.JFrame {
         panelGeneral.setLayout(new java.awt.CardLayout());
         getContentPane().add(panelGeneral, java.awt.BorderLayout.CENTER);
 
-        jLabel15.setText("CRISTIAN BETANCOURT");
-        panelNombre.add(jLabel15);
+        lblNombre.setText("CRISTIAN BETANCOURT");
+        panelNombre.add(lblNombre);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("-");
+        panelNombre.add(jLabel1);
+
+        lblUsuario.setText("COD. USUARIO");
+        panelNombre.add(lblUsuario);
 
         getContentPane().add(panelNombre, java.awt.BorderLayout.PAGE_START);
 
         jMenu3.setText("Reservar");
 
-        jMenu5.setText("Nuevo");
+        menuHotel.setText("Nuevo");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Hoteles");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        opcionHotel.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        opcionHotel.setText("Hoteles");
+        opcionHotel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                opcionHotelActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem1);
+        menuHotel.add(opcionHotel);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setText("Habitaciones");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        opcHabitaciones.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        opcHabitaciones.setText("Habitaciones");
+        opcHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                opcHabitacionesActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem6);
+        menuHotel.add(opcHabitaciones);
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem7.setText("Servicios");
-        jMenu5.add(jMenuItem7);
-
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem8.setText("Guardar");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        opcEstadia.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        opcEstadia.setText("Estadia ");
+        opcEstadia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                opcEstadiaActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem8);
+        menuHotel.add(opcEstadia);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText("Limpiar");
-        jMenu5.add(jMenuItem3);
+        opcAlimentacion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        opcAlimentacion.setText("Alimentacion");
+        opcAlimentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcAlimentacionActionPerformed(evt);
+            }
+        });
+        menuHotel.add(opcAlimentacion);
 
-        jMenu3.add(jMenu5);
+        opcGuardar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        opcGuardar.setText("Guardar");
+        opcGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcGuardarActionPerformed(evt);
+            }
+        });
+        menuHotel.add(opcGuardar);
 
+        jMenu3.add(menuHotel);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setText("Revisar");
         jMenu3.add(jMenuItem2);
 
@@ -108,35 +132,74 @@ public class Reservacion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void opcGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcGuardarActionPerformed
+        if (contador > 5) {
+            cambioFrame(5);
+        } else {
+            JOptionPane.showMessageDialog(null, "SELECCIONE UN HOTEL PARA EL HOSPEDAJE");
+        }
+    }//GEN-LAST:event_opcGuardarActionPerformed
 
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    private void opcionHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionHotelActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         cambioFrame(1);
 
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_opcionHotelActionPerformed
+
+    private void opcHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcHabitacionesActionPerformed
         if (contador != 0) {
             cambioFrame(2);
         } else {
             JOptionPane.showMessageDialog(null, "SELECCIONE UN HOTEL PARA EL HOSPEDAJE");
         }
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_opcHabitacionesActionPerformed
 
-    public void cambioFrame(int i) {
+    private void opcAlimentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcAlimentacionActionPerformed
+        if (contador > 1) {
+            cambioFrame(4);
+        } else {
+            JOptionPane.showMessageDialog(null, "SELECCIONE UN HOTEL PARA EL HOSPEDAJE");
+        }
+    }//GEN-LAST:event_opcAlimentacionActionPerformed
+
+    private void opcEstadiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcEstadiaActionPerformed
+        if (contador > 1) {
+            cambioFrame(3);
+        } else {
+            JOptionPane.showMessageDialog(null, "SELECCIONE UN HOTEL PARA EL HOSPEDAJE");
+        }
+    }//GEN-LAST:event_opcEstadiaActionPerformed
+
+    private void cambioFrame(int i) {
         panelGeneral.removeAll();
         switch (i) {
             case 1:
-
                 panelGeneral.add(hotel);
                 contador++;
+
                 break;
 
             case 2:
 
                 panelGeneral.add(habitacion);
+                contador++;
+
+                break;
+
+            case 3:
+                panelGeneral.add(estadia);
+                contador++;
+                break;
+
+            case 4:
+                panelGeneral.add(alimentacion);
+                contador++;
+                break;
+
+            case 5:
+                panelGeneral.add(revisar);
+                contador++;
                 break;
         }
     }
@@ -177,16 +240,18 @@ public class Reservacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JMenu menuHotel;
+    private javax.swing.JMenuItem opcAlimentacion;
+    private javax.swing.JMenuItem opcEstadia;
+    private javax.swing.JMenuItem opcGuardar;
+    private javax.swing.JMenuItem opcHabitaciones;
+    private javax.swing.JMenuItem opcionHotel;
     private javax.swing.JPanel panelGeneral;
     private javax.swing.JPanel panelNombre;
     // End of variables declaration//GEN-END:variables

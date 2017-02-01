@@ -5,8 +5,6 @@
  */
 package vista;
 
-import modelo.Habitacion;
-
 /**
  *
  * @author Toshiba
@@ -18,6 +16,7 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
      */
     public FrameHabitacion() {
         initComponents();
+
     }
 
     /**
@@ -349,7 +348,7 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-      
+
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
