@@ -5,6 +5,8 @@
  */
 package vista;
 
+
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,8 +24,8 @@ public class Reservacion extends javax.swing.JFrame {
 
     public Reservacion() {
         initComponents();
-        this.setTitle("RESERVACION");
-        this.setLocationRelativeTo(null);
+        setTitle("RESERVACION");
+        setLocationRelativeTo(null);
 
     }
 
@@ -56,6 +58,12 @@ public class Reservacion extends javax.swing.JFrame {
         panelGeneral.setPreferredSize(new java.awt.Dimension(634, 440));
         panelGeneral.setLayout(new java.awt.CardLayout());
         getContentPane().add(panelGeneral, java.awt.BorderLayout.CENTER);
+
+        panelNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelNombreMouseClicked(evt);
+            }
+        });
 
         lblNombre.setText("CRISTIAN BETANCOURT");
         panelNombre.add(lblNombre);
@@ -171,7 +179,11 @@ public class Reservacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_opcEstadiaActionPerformed
 
-    private void cambioFrame(int i) {
+    private void panelNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNombreMouseClicked
+        System.out.println(JOptionPane.showConfirmDialog(null, "Desea cerrar cesion") + "");
+    }//GEN-LAST:event_panelNombreMouseClicked
+
+    private void cambioFrame(int i, JInternalFrame frame) {
         panelGeneral.removeAll();
         switch (i) {
             case 1:

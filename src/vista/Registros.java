@@ -304,7 +304,7 @@ public class Registros extends javax.swing.JFrame {
         String nombres = txtnombres.getText();
         String apellidos = txtapellidos.getText();
         String id = txtci.getText();
-        String fechaNacimiento;
+        Date fechaNacimiento;
         fechaNacimiento = fechaNacimiento();
         int codigo;
 
@@ -452,17 +452,17 @@ public class Registros extends javax.swing.JFrame {
 
     }
 
-    private String fechaNacimiento() {
-        String fechaNacimiento;
+    private Date fechaNacimiento() {
+        Date fechaNacimiento;
         date = new Date();
-              
+
         try {
             if (nacimiento.getDate().after(date)) {
 
                 JOptionPane.showMessageDialog(null, "Fecha de nacimiento incorrecta");
                 fechaNacimiento = null;
             }
-            fechaNacimiento = sdf.format(nacimiento.getDate());
+            fechaNacimiento = nacimiento.getDate();
         } catch (Exception ex) {
             fechaNacimiento = null;
         }

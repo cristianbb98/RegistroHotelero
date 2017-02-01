@@ -182,9 +182,15 @@ public class Ingreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btnregresarActionPerformed
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-        Reservacion re = new Reservacion();
-        re.setVisible(true);
-        dispose();
+        if (rbtcliente.isSelected()) {
+            Reservacion re = new Reservacion();
+            re.setVisible(true);
+            dispose();
+        } else {
+            new Gestion().setVisible(true);
+            dispose();
+
+        }
     }//GEN-LAST:event_btningresarActionPerformed
 
     private void rbtclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtclienteActionPerformed

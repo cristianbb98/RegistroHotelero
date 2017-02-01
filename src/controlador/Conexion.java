@@ -6,7 +6,8 @@ import java.util.logging.Logger;
 
 public class Conexion {
 
-    Connection cnx;
+    private final String BASE = "com.mysql.jdbc.Driver";
+    private Connection cnx;
 
     public Conexion() {
     }
@@ -26,7 +27,7 @@ public class Conexion {
     public Connection obtener() {
         if (cnx == null) {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName(BASE);
                 cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "Colapsolida-98");
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);

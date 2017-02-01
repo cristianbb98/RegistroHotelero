@@ -1,11 +1,14 @@
 
 package modelo;
 
+import java.util.Date;
+
 
 public class Persona {
-    String nombre, apellido , nacionalidad, ci, fechadenacimiento, numeroTelefonico;
+   private String nombre, apellido , nacionalidad, ci,  numeroTelefonico;
+   private Date fechadenacimiento;
 
-    public Persona(String nombre, String apellido,String nacionalidad, String ci, String fechadenacimiento, String numeroTelefonico) {
+    public Persona(String nombre, String apellido,String nacionalidad, String ci, Date fechadenacimiento, String numeroTelefonico) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacionalidad=nacionalidad;
@@ -46,7 +49,7 @@ public class Persona {
         return ci;
     }
 
-    public String getFechadenacimiento() {
+    public Date getFechadenacimiento() {
         return fechadenacimiento;
     }
 
@@ -62,7 +65,7 @@ public class Persona {
         this.ci = ci;
     }
 
-    public void setFechadenacimiento(String fechadenacimiento) {
+    public void setFechadenacimiento(Date fechadenacimiento) {
         this.fechadenacimiento = fechadenacimiento;
     }
     

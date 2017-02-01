@@ -1,6 +1,7 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Cliente extends Persona implements Serializable{
 
@@ -10,7 +11,7 @@ public class Cliente extends Persona implements Serializable{
     public Cliente() {
     }
 
-    public Cliente(String usuario, String clave, String nombre, String apellido, String nacionalidad, String ci, String fechadenacimiento, String numeroTelefonico) {
+    public Cliente(String usuario, String clave, String nombre, String apellido, String nacionalidad, String ci, Date fechadenacimiento, String numeroTelefonico) {
         super(nombre, apellido, nacionalidad, ci, fechadenacimiento, numeroTelefonico);
         this.usuario = usuario;
         this.clave = clave;
