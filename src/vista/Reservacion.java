@@ -5,7 +5,6 @@
  */
 package vista;
 
-
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
@@ -183,7 +182,7 @@ public class Reservacion extends javax.swing.JFrame {
         System.out.println(JOptionPane.showConfirmDialog(null, "Desea cerrar cesion") + "");
     }//GEN-LAST:event_panelNombreMouseClicked
 
-    private void cambioFrame(int i, JInternalFrame frame) {
+    private void cambioFrame(int i) {
         panelGeneral.removeAll();
         switch (i) {
             case 1:
