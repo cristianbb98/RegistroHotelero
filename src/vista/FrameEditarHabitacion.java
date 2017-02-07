@@ -322,26 +322,11 @@ public class FrameEditarHabitacion extends javax.swing.JInternalFrame {
 
         jPanel13.add(jPanel17);
 
+        jPanel1.setMinimumSize(new java.awt.Dimension(71, 20));
         jPanel1.setPreferredSize(new java.awt.Dimension(439, 20));
 
         jButton1.setText("Editar");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(178, 178, 178))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jButton1)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
+        jPanel1.add(jButton1);
 
         jPanel13.add(jPanel1);
 

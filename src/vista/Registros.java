@@ -2,15 +2,11 @@ package vista;
 
 import controlador.Conexion;
 
-import controlador.Tabla;
+import controlador.*;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
-import java.util.List;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
+import java.util.*;
+import javax.swing.*;
 import modelo.*;
 
 public class Registros extends javax.swing.JFrame {
@@ -20,7 +16,7 @@ public class Registros extends javax.swing.JFrame {
     private Conexion conexion = new Conexion();
     private controlador.Validacion validar = new controlador.Validacion();
     private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
-    private String confirmacion = validar.encriptaEnMD5(validar.encriptaEnMD5("12345"));
+    private final String CONFIRMACION = validar.encriptaEnMD5(validar.encriptaEnMD5("12345"));
     private String clave1, clave2;
     public Cliente cliente;
     public Empleado empleado;
@@ -64,9 +60,6 @@ public class Registros extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtclave2 = new javax.swing.JPasswordField();
         nacionalidad = new javax.swing.JComboBox<>();
-        jLabel13 = new javax.swing.JLabel();
-        btncliente = new javax.swing.JToggleButton();
-        btnadmin = new javax.swing.JToggleButton();
         lblconfirmacion = new javax.swing.JLabel();
         nacimiento = new com.toedter.calendar.JDateChooser();
         panelBotones = new javax.swing.JPanel();
@@ -78,87 +71,70 @@ public class Registros extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        panelDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelGeneral.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("Nombres:");
-        panelDatos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 14, -1, -1));
 
         txtnombres.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtnombresKeyTyped(evt);
             }
         });
-        panelDatos.add(txtnombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 11, 232, -1));
 
         jLabel2.setText("Apellidos:");
-        panelDatos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 45, -1, -1));
 
         txtapellidos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtapellidosKeyTyped(evt);
             }
         });
-        panelDatos.add(txtapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 42, 232, -1));
 
         jLabel3.setText("Cédula o Pasaporte:");
-        panelDatos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 107, -1, -1));
 
         txtci.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtciKeyTyped(evt);
             }
         });
-        panelDatos.add(txtci, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 104, 232, -1));
 
         jLabel4.setText("Fecha Nacimiento:");
-        panelDatos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 141, -1, -1));
 
         jLabel5.setText("Nacionalidad:");
-        panelDatos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 76, -1, -1));
 
         jLabel6.setText("Número Telefónico:");
-        panelDatos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 169, -1, -1));
 
         txttelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txttelefonoKeyTyped(evt);
             }
         });
-        panelDatos.add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 166, 232, -1));
 
         jLabel7.setText("Usuario:");
-        panelDatos.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 234, -1, -1));
 
         txtusuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtusuarioKeyTyped(evt);
             }
         });
-        panelDatos.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 231, 232, -1));
 
         jLabel8.setText("Contraseña:");
-        panelDatos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 265, -1, -1));
 
         txtclave1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtclave1KeyTyped(evt);
             }
         });
-        panelDatos.add(txtclave1, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 262, 232, -1));
 
         jProgressBar1.setForeground(new java.awt.Color(10, 200, 100));
         jProgressBar1.setToolTipText("");
-        panelDatos.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 288, 232, -1));
 
         jLabel9.setText("Validacion contraseña:");
-        panelDatos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 315, -1, -1));
 
         txtclave2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtclave2KeyTyped(evt);
             }
         });
-        panelDatos.add(txtclave2, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 312, 232, -1));
 
         nacionalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE UN PAIS" }));
         nacionalidad.addActionListener(new java.awt.event.ActionListener() {
@@ -166,29 +142,131 @@ public class Registros extends javax.swing.JFrame {
                 nacionalidadActionPerformed(evt);
             }
         });
-        panelDatos.add(nacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 73, 232, -1));
 
-        jLabel13.setText("Tipo:");
-        panelDatos.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 201, -1, -1));
+        javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
+        panelDatos.setLayout(panelDatosLayout);
+        panelDatosLayout.setHorizontalGroup(
+            panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel1)
+                .addGap(97, 97, 97)
+                .addComponent(txtnombres, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel2)
+                .addGap(97, 97, 97)
+                .addComponent(txtapellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel5)
+                .addGap(79, 79, 79)
+                .addComponent(nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel3)
+                .addGap(45, 45, 45)
+                .addComponent(txtci, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel4)
+                .addGap(56, 56, 56)
+                .addComponent(nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel6)
+                .addGap(50, 50, 50)
+                .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel7)
+                .addGap(103, 103, 103)
+                .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel8)
+                .addGap(83, 83, 83)
+                .addComponent(txtclave1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel9)
+                .addGap(35, 35, 35)
+                .addComponent(txtclave2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(lblconfirmacion, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        panelDatosLayout.setVerticalGroup(
+            panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel1))
+                    .addComponent(txtnombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel2))
+                    .addComponent(txtapellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel5))
+                    .addComponent(nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel3))
+                    .addComponent(txtci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel4))
+                    .addComponent(nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel6))
+                    .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel7))
+                    .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel8))
+                    .addComponent(txtclave1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel9))
+                    .addComponent(txtclave2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addComponent(lblconfirmacion, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        btncliente.setSelected(true);
-        btncliente.setText("Cliente");
-        btncliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnclienteActionPerformed(evt);
-            }
-        });
-        panelDatos.add(btncliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 197, 99, -1));
-
-        btnadmin.setText("Administrador");
-        btnadmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnadminActionPerformed(evt);
-            }
-        });
-        panelDatos.add(btnadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 197, -1, -1));
-        panelDatos.add(lblconfirmacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 338, 153, 11));
-        panelDatos.add(nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 230, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        panelGeneral.add(panelDatos, gridBagConstraints);
 
         panelBotones.setLayout(new java.awt.GridBagLayout());
 
@@ -233,48 +311,29 @@ public class Registros extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 93, 0, 0);
         panelBotones.add(btnregistrar, gridBagConstraints);
 
-        javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
-        panelGeneral.setLayout(panelGeneralLayout);
-        panelGeneralLayout.setHorizontalGroup(
-            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(panelBotones, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        panelGeneralLayout.setVerticalGroup(
-            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGeneralLayout.createSequentialGroup()
-                .addComponent(panelDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 17;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+        panelGeneral.add(panelBotones, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 501;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+        panelGeneral.add(jSeparator1, gridBagConstraints);
 
         getContentPane().add(panelGeneral, new java.awt.GridBagConstraints());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadminActionPerformed
-        try {
-            if (confirmacion.equals(validar.encriptaEnMD5(validar.encriptaEnMD5(JOptionPane.showInputDialog("Clave de confirmación"))))) {
-                btnadmin.setSelected(true);
-                btncliente.setSelected(false);
-            } else {
-                btncliente.setSelected(true);
-                btnadmin.setSelected(false);
-            }
-        } catch (Exception ex) {
-            btncliente.setSelected(true);
-            btnadmin.setSelected(false);
-        }
-    }//GEN-LAST:event_btnadminActionPerformed
-
-    private void btnclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclienteActionPerformed
-        btnadmin.setSelected(false);
-        btncliente.setSelected(true);
-    }//GEN-LAST:event_btnclienteActionPerformed
 
     private void nacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nacionalidadActionPerformed
         if (nacionalidad.getSelectedIndex() == 0) {
@@ -301,96 +360,93 @@ public class Registros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
-        String nombres = txtnombres.getText();
-        String apellidos = txtapellidos.getText();
-        String id = txtci.getText();
-        Date fechaNacimiento;
-        fechaNacimiento = fechaNacimiento();
-        int codigo;
+        int value = -1;
+        
+            String nombres = txtnombres.getText();
+            String apellidos = txtapellidos.getText();
+            String id = txtci.getText();
+            Date fechaNacimiento;
+            fechaNacimiento = fechaNacimiento();
+            int codigo;
 
-        String telefono = txttelefono.getText();
-        String usuario = txtusuario.getText();
-        clave1 = txtclave1.getText();
-        clave2 = txtclave2.getText();
+            String telefono = txttelefono.getText();
+            String usuario = txtusuario.getText();
+            clave1 = txtclave1.getText();
+            clave2 = txtclave2.getText();
 
-        List<String> campos = new ArrayList<>();
-        campos.add(nombres);
-        campos.add(apellidos);
-        campos.add(id);
-        campos.add(telefono);
-        campos.add(usuario);
-        campos.add(clave1);
-        campos.add(clave2);
+            List<String> campos = new ArrayList<>();
+            campos.add(nombres);
+            campos.add(apellidos);
+            campos.add(id);
+            campos.add(telefono);
+            campos.add(usuario);
+            campos.add(clave1);
+            campos.add(clave2);
 
-        List<Integer> camposVacios = validar.camposVacios(campos);
-        if (!camposVacios.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Campos obligatorios vacios"); //mensaje
+            List<Integer> camposVacios = validar.camposVacios(campos);
+            if (!camposVacios.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Campos obligatorios vacios"); //mensaje
 
-            for (Integer camposVacio : camposVacios) {  //devuelve la psocion de la lista de campos vacios leyendo la lista
+                for (Integer camposVacio : camposVacios) {  //devuelve la psocion de la lista de campos vacios leyendo la lista
 
-                switch (camposVacio) {
-                    case 0:
-                        txtnombres.setBackground(Color.red);
-                        break;
-                    case 1:
-                        txtapellidos.setBackground(Color.red);
-                        break;
-                    case 2:
-                        txtci.setBackground(Color.red);
-                        break;
-                    case 3:
-                        txttelefono.setBackground(Color.red);
-                        break;
-                    case 4:
-                        txtusuario.setBackground(Color.red);
-                        break;
-                    case 5:
-                        txtclave1.setBackground(Color.red);
-                        break;
-                    case 6:
-                        txtclave2.setBackground(Color.red);
-                        lblconfirmacion.setForeground(Color.red);
-                        lblconfirmacion.setText("Contraseña incorrecta");
-                        break;
+                    switch (camposVacio) {
+                        case 0:
+                            txtnombres.setBackground(Color.red);
+                            break;
+                        case 1:
+                            txtapellidos.setBackground(Color.red);
+                            break;
+                        case 2:
+                            txtci.setBackground(Color.red);
+                            break;
+                        case 3:
+                            txttelefono.setBackground(Color.red);
+                            break;
+                        case 4:
+                            txtusuario.setBackground(Color.red);
+                            break;
+                        case 5:
+                            txtclave1.setBackground(Color.red);
+                            break;
+                        case 6:
+                            txtclave2.setBackground(Color.red);
+                            lblconfirmacion.setForeground(Color.red);
+                            lblconfirmacion.setText("Contraseña incorrecta");
+                            break;
 
+                    }
                 }
-            }
-        } else if ((validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2)))) && fechaNacimiento != null && ciudadania != null) {
-            lblconfirmacion.setForeground(Color.green);
-            lblconfirmacion.setText("Contraseña correcta");
-            if (btncliente.isSelected()) {
+            } else if ((validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2)))) && fechaNacimiento != null && ciudadania != null) {
+                lblconfirmacion.setForeground(Color.green);
+                lblconfirmacion.setText("Contraseña correcta");
+
                 cliente = new Cliente(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, ciudadania, id, fechaNacimiento, telefono);
                 conexion.obtener();
-                new Tabla(conexion).agregarValores((Object) cliente, 1);
-                Ingreso ingreso = new Ingreso();
-                ingreso.setVisible(true);
+                if(new Tabla(conexion).agregarValores(cliente)==-1){
+                
+                }else{
+                    conexion.cerrar();
+                new Ingreso().setVisible(true);
                 dispose();
-            } else {
-                empleado = new Empleado(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, ciudadania, id, fechaNacimiento, telefono);
-                conexion.obtener();
-                new Tabla(conexion).agregarValores((Object) empleado, 4);
-                Ingreso ingreso = new Ingreso();
-                ingreso.setVisible(true);
+                
+                }
 
+            } else if (!(validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2))))) {
+                lblconfirmacion.setForeground(Color.red);
+                lblconfirmacion.setText("Contraseña incorrecta");
+
+            } else if (fechaNacimiento == null) {
+                JOptionPane.showMessageDialog(null, "Fecha de nacimiento incorecta");
+
+            } else if (ciudadania == null) {
+                JOptionPane.showMessageDialog(null, "Nacionalidad incorrecta");
             }
 
-        } else if (!(validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2))))) {
-            lblconfirmacion.setForeground(Color.red);
-            lblconfirmacion.setText("Contraseña incorrecta");
-
-        } else if (fechaNacimiento == null) {
-            JOptionPane.showMessageDialog(null, "Fecha de nacimiento incorecta");
-
-        } else if (ciudadania == null) {
-            JOptionPane.showMessageDialog(null, "Nacionalidad incorrecta");
-        }
-
-
+        
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
-        Bienvenida bienvenida = new Bienvenida();
-        bienvenida.setVisible(true);
+        new Bienvenida().setVisible(true);
     }//GEN-LAST:event_btnvolverActionPerformed
 
     private void txtclave1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtclave1KeyTyped
@@ -750,13 +806,10 @@ public class Registros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnadmin;
-    private javax.swing.JToggleButton btncliente;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnregistrar;
     private javax.swing.JButton btnvolver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

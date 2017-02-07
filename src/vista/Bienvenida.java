@@ -5,12 +5,11 @@ import javax.swing.*;
 
 public class Bienvenida extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PantallaBienvenida
-     */
+    
     public Bienvenida() {
         initComponents();
         setLocationRelativeTo(null);
+        
     }
 
     /**

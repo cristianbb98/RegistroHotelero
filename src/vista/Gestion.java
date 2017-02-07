@@ -14,7 +14,12 @@ import javax.swing.JOptionPane;
  */
 public class Gestion extends javax.swing.JFrame {
 
-private FrameEditarHabitacion editarHabitacion = new FrameEditarHabitacion();
+    private boolean tipo;
+
+    private FrameEditarHabitacion editarHabitacion = new FrameEditarHabitacion();
+    private FrameEditarCliente editarcliente = new FrameEditarCliente();
+    private FrameRevisar revisarcliente = new FrameRevisar();
+
     public Gestion() {
         initComponents();
     }
@@ -27,12 +32,17 @@ private FrameEditarHabitacion editarHabitacion = new FrameEditarHabitacion();
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        panelGeneral = new javax.swing.JPanel();
         panelNombre = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        cbxBusqueda = new javax.swing.JComboBox<>();
+        txtBusqueda = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        panelGeneral = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         menuRevHabitacion = new javax.swing.JMenuItem();
@@ -41,9 +51,7 @@ private FrameEditarHabitacion editarHabitacion = new FrameEditarHabitacion();
         menuRevCliente = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        panelGeneral.setPreferredSize(new java.awt.Dimension(634, 440));
-        panelGeneral.setLayout(new java.awt.CardLayout());
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         panelNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -62,10 +70,56 @@ private FrameEditarHabitacion editarHabitacion = new FrameEditarHabitacion();
         lblUsuario.setText("COD. USUARIO");
         panelNombre.add(lblUsuario);
 
+        getContentPane().add(panelNombre);
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(0, 45));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        cbxBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buscar por:", "Cedula", "Usuario", "CodigoUsuario" }));
+        cbxBusqueda.setToolTipText("");
+        cbxBusqueda.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 53, 0, 0);
+        jPanel2.add(cbxBusqueda, gridBagConstraints);
+
+        txtBusqueda.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 130;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 40, 0, 0);
+        jPanel2.add(txtBusqueda, gridBagConstraints);
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.setEnabled(false);
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 29, 3, 27);
+        jPanel2.add(btnBuscar, gridBagConstraints);
+
+        getContentPane().add(jPanel2);
+
+        panelGeneral.setPreferredSize(new java.awt.Dimension(634, 440));
+        panelGeneral.setLayout(new java.awt.CardLayout());
+        getContentPane().add(panelGeneral);
+
         jMenu3.setText("Habitacion");
 
         menuRevHabitacion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        menuRevHabitacion.setText("Revisar");
+        menuRevHabitacion.setText("Editar");
         menuRevHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuRevHabitacionActionPerformed(evt);
@@ -99,60 +153,58 @@ private FrameEditarHabitacion editarHabitacion = new FrameEditarHabitacion();
 
         setJMenuBar(jMenuBar2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(panelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuEditClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditClienteActionPerformed
-
-//        cambioFrame(1);
+        habilitar();
+        tipo = true;
+        panelGeneral.removeAll();
 
     }//GEN-LAST:event_menuEditClienteActionPerformed
 
     private void menuRevClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRevClienteActionPerformed
-       
-            
-      
-         
-      
+        habilitar();
+        tipo = false;
+        panelGeneral.removeAll();
+
     }//GEN-LAST:event_menuRevClienteActionPerformed
 
     private void panelNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNombreMouseClicked
-        System.out.println(JOptionPane.showConfirmDialog(null, "Desea cerrar cesion") + "");
+        if (JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO QUE DESEA ERRAR SESION?") == 0) {
+
+            this.setVisible(false);
+            new Ingreso().setVisible(true);
+            dispose();
+
+        }
     }//GEN-LAST:event_panelNombreMouseClicked
 
     private void menuRevHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRevHabitacionActionPerformed
-       cambioFrame(editarHabitacion);
-        // TODO add your handling code here:
+        cambioFrame(revisarcliente);
+
     }//GEN-LAST:event_menuRevHabitacionActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        if (tipo) {
+            cambioFrame(editarcliente);
+        } else {
+            cambioFrame(revisarcliente);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
     private void cambioFrame(JInternalFrame frame) {
+
         panelGeneral.removeAll();
         panelGeneral.add(frame);
+
+    }
+
+    private void habilitar() {
+
+        cbxBusqueda.setEnabled(true);
+        txtBusqueda.setEnabled(true);
+        btnBuscar.setEnabled(true);
 
     }
 
@@ -192,10 +244,13 @@ private FrameEditarHabitacion editarHabitacion = new FrameEditarHabitacion();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JComboBox<String> cbxBusqueda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JMenuItem menuEditCliente;
@@ -203,5 +258,6 @@ private FrameEditarHabitacion editarHabitacion = new FrameEditarHabitacion();
     private javax.swing.JMenuItem menuRevHabitacion;
     private javax.swing.JPanel panelGeneral;
     private javax.swing.JPanel panelNombre;
+    private javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
 }

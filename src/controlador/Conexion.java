@@ -28,7 +28,7 @@ public class Conexion {
         if (cnx == null) {
             try {
                 Class.forName(BASE);
-                cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "Colapsolida-98");
+                cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/registrohotelero", "root", "Colapsolida-98");
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -7,11 +7,13 @@ package vista;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class FrameEstadia extends javax.swing.JInternalFrame {
 
-//    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
-//    private SimpleDateFormat sdf2 = new SimpleDateFormat("YYYY");
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd");
+    private SimpleDateFormat sdf2 = new SimpleDateFormat("MM");
+    private SimpleDateFormat sdf3 = new SimpleDateFormat("YYYY");
     private Date fechaMin = new Date();
     private int contador = 0;
 
@@ -35,29 +37,27 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        lbluno = new javax.swing.JLabel();
         dateLLegada = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
-        dateSalida = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
-        lbldos = new javax.swing.JLabel();
+        dateSalida = new com.toedter.calendar.JDateChooser();
         jPanel5 = new javax.swing.JPanel();
         lblconfirmacion = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnverificar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(438, 493));
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        panelFechas.setPreferredSize(new java.awt.Dimension(438, 493));
+        panelFechas.setPreferredSize(new java.awt.Dimension(438, 400));
         panelFechas.setLayout(new javax.swing.BoxLayout(panelFechas, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(30, 200));
         jPanel4.setRequestFocusEnabled(false);
-        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel1.setMinimumSize(new java.awt.Dimension(308, 100));
+        jPanel1.setPreferredSize(new java.awt.Dimension(352, 90));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -65,70 +65,44 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 217;
+        gridBagConstraints.ipadx = 183;
         gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(34, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(11, 155, 0, 156);
         jPanel1.add(jLabel2, gridBagConstraints);
-
-        lbluno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbluno.setText("ASFASFDS");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 247;
-        gridBagConstraints.ipady = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(31, 10, 0, 0);
-        jPanel1.add(lbluno, gridBagConstraints);
 
         dateLLegada.setMinSelectableDate(new Date());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 261;
+        gridBagConstraints.ipadx = 237;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 155, 0, 156);
         jPanel1.add(dateLLegada, gridBagConstraints);
 
         jPanel4.add(jPanel1);
 
         jPanel2.setMinimumSize(new java.awt.Dimension(308, 100));
+        jPanel2.setPreferredSize(new java.awt.Dimension(352, 90));
         jPanel2.setLayout(new java.awt.GridBagLayout());
-
-        dateSalida.setDateFormatString("d/MM/YYYY");
-        dateSalida.setDoubleBuffered(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 271;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 10, 0, 0);
-        jPanel2.add(dateSalida, gridBagConstraints);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("DIA DE SALIDA");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 225;
+        gridBagConstraints.ipadx = 191;
         gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(35, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(11, 154, 0, 157);
         jPanel2.add(jLabel1, gridBagConstraints);
-
-        lbldos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbldos.setText("ASFASFDS");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 247;
-        gridBagConstraints.ipady = 11;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 237;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 10, 0, 0);
-        jPanel2.add(lbldos, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(18, 154, 14, 157);
+        jPanel2.add(dateSalida, gridBagConstraints);
 
         jPanel4.add(jPanel2);
 
@@ -138,7 +112,7 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
         jPanel5.setLayout(new java.awt.CardLayout());
 
         lblconfirmacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblconfirmacion.setPreferredSize(new java.awt.Dimension(34, 50));
+        lblconfirmacion.setPreferredSize(new java.awt.Dimension(34, 10));
         jPanel5.add(lblconfirmacion, "card2");
 
         panelFechas.add(jPanel5);
@@ -146,19 +120,15 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
         jPanel6.setPreferredSize(new java.awt.Dimension(620, 40));
         jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
 
-        jButton2.setText("Verificar");
-        jButton2.setMaximumSize(new java.awt.Dimension(3, 3));
-        jButton2.setPreferredSize(new java.awt.Dimension(73, 25));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnverificar.setText("Guardar");
+        btnverificar.setMaximumSize(new java.awt.Dimension(3, 3));
+        btnverificar.setPreferredSize(new java.awt.Dimension(73, 25));
+        btnverificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnverificarActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton2);
-
-        jButton1.setText("Avanzar");
-        jButton1.setPreferredSize(new java.awt.Dimension(73, 25));
-        jPanel6.add(jButton1);
+        jPanel6.add(btnverificar);
 
         panelFechas.add(jPanel6);
 
@@ -167,12 +137,33 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (dateLLegada.getDate().before(dateSalida.getDate())) {
-            System.out.println("HOLA");
+    private void btnverificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverificarActionPerformed
+        int añoLL = Integer.parseInt(sdf3.format(dateLLegada.getDate()));
+        int añoS = Integer.parseInt(sdf3.format(dateSalida.getDate()));
+        int mesLL = Integer.parseInt(sdf2.format(dateLLegada.getDate()));
+        int mesS = Integer.parseInt(sdf2.format(dateSalida.getDate()));
+        int diaLL = Integer.parseInt(sdf.format(dateLLegada.getDate()));
+        int diaS = Integer.parseInt(sdf.format(dateSalida.getDate()));
+
+        System.out.println((añoS - añoLL) + "");
+        System.out.println(mesLL + "");
+        System.out.println(mesS + "");
+        System.out.println(diaLL + "");
+        System.out.println(diaS + "");
+
+        if (añoS - añoLL != 0) {
+            JOptionPane.showMessageDialog(null, "No se permite reservaciones mas de un año");
+        } else if (mesS - mesLL != 0) {
+            JOptionPane.showMessageDialog(null, "No se permite reservaciones mas de un mes");
+        } else if (dateSalida.getDate().getDay() - dateSalida.getDate().getDay() > 7 || dateSalida.getDate().getDay() - dateSalida.getDate().getDay() < 0) {
+            JOptionPane.showMessageDialog(null, "No se permite reservaciones mas de una semana");
+
+        } else {
+            lblconfirmacion.setText("Usted ha reservado" + (diaS-diaLL) + " para su estadia");
+
         }
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnverificarActionPerformed
 
 //   private Date minimo() {
 //                revalidate();
@@ -182,10 +173,9 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
 //            }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnverificar;
     private com.toedter.calendar.JDateChooser dateLLegada;
     private com.toedter.calendar.JDateChooser dateSalida;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -194,8 +184,6 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblconfirmacion;
-    private javax.swing.JLabel lbldos;
-    private javax.swing.JLabel lbluno;
     private javax.swing.JPanel panelFechas;
     // End of variables declaration//GEN-END:variables
 }

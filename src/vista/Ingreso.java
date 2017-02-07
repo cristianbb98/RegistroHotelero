@@ -5,11 +5,18 @@
  */
 package vista;
 
+import controlador.Conexion;
+import controlador.Tabla;
+import controlador.Validacion;
+
 /**
  *
  * @author Toshiba
  */
 public class Ingreso extends javax.swing.JFrame {
+
+    private Conexion cnx = new Conexion();
+    private Validacion validar = new Validacion();
 
     public Ingreso() {
         initComponents();
@@ -36,9 +43,6 @@ public class Ingreso extends javax.swing.JFrame {
         txtusuario = new javax.swing.JTextField();
         txtclave = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        rbtcliente = new javax.swing.JRadioButton();
-        rbtempleado = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         separador = new javax.swing.JSeparator();
 
@@ -104,45 +108,6 @@ public class Ingreso extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(21, 40, 0, 0);
         panelIngreso.add(jLabel1, gridBagConstraints);
 
-        jLabel3.setText("Tipo:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 36;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(26, 40, 0, 0);
-        panelIngreso.add(jLabel3, gridBagConstraints);
-
-        rbtcliente.setText("Cliente");
-        rbtcliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtclienteActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 25;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 32, 37, 0);
-        panelIngreso.add(rbtcliente, gridBagConstraints);
-
-        rbtempleado.setText("Empleado");
-        rbtempleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtempleadoActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 36, 37, 40);
-        panelIngreso.add(rbtempleado, gridBagConstraints);
-
         jLabel4.setText("Usuario:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -176,30 +141,18 @@ public class Ingreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
-        Bienvenida bienvenida = new Bienvenida();
-        bienvenida.setVisible(true);
+       new Bienvenida().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnregresarActionPerformed
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
-        if (rbtcliente.isSelected()) {
-            Reservacion re = new Reservacion();
-            re.setVisible(true);
+            cnx.obtener();
+//            new Tabla(cnx).logear(txtusuario.getText(), validar.encriptaEnMD5(validar.encriptaEnMD5(txtclave.getText())));
+            new Tabla(cnx).logear(txtusuario.getText());
             dispose();
-        } else {
-            new Gestion().setVisible(true);
-            dispose();
-
-        }
+        
+       
     }//GEN-LAST:event_btningresarActionPerformed
-
-    private void rbtclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtclienteActionPerformed
-        rbtempleado.setSelected(false);
-    }//GEN-LAST:event_rbtclienteActionPerformed
-
-    private void rbtempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtempleadoActionPerformed
-        rbtcliente.setSelected(false);
-    }//GEN-LAST:event_rbtempleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,13 +193,10 @@ public class Ingreso extends javax.swing.JFrame {
     private javax.swing.JButton btningresar;
     private javax.swing.JButton btnregresar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel panelBotones;
     private javax.swing.JPanel panelGeneral;
     private javax.swing.JPanel panelIngreso;
-    private javax.swing.JRadioButton rbtcliente;
-    private javax.swing.JRadioButton rbtempleado;
     private javax.swing.JSeparator separador;
     private javax.swing.JPasswordField txtclave;
     private javax.swing.JTextField txtusuario;

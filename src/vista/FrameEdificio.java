@@ -5,6 +5,8 @@
  */
 package vista;
 
+import controlador.Conexion;
+import controlador.Tabla;
 
 /**
  *
@@ -12,7 +14,13 @@ package vista;
  */
 public class FrameEdificio extends javax.swing.JInternalFrame {
 
-    
+    public final String TABLA = "edificio";
+    private final String DATO = "precio";
+    private String nombre;
+
+    private Conexion cnx = new Conexion();
+    private Tabla tabla = new Tabla(cnx);
+
     public FrameEdificio() {
         initComponents();
         this.setTitle("SELECCIONE UN HOTEL");
@@ -122,28 +130,38 @@ public class FrameEdificio extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void atacamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atacamesActionPerformed
-//        controlador.LeerEscribirArchivos leer = new LeerEscribirArchivos();
-//        leer.leerArchivos("edificios");
-
-//        new Reservacion().cambioFrame(2);
+        colocar("Atacames BV");
 
     }//GEN-LAST:event_atacamesActionPerformed
 
     private void tonsupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tonsupaActionPerformed
+        colocar("Tonsupa BV");
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_tonsupaActionPerformed
 
     private void crucitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crucitaActionPerformed
-
-        // TODO add your handling code here:
+        colocar("Crucita BV");
     }//GEN-LAST:event_crucitaActionPerformed
 
     private void salinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salinasActionPerformed
+        colocar("Salinas BV");
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_salinasActionPerformed
 
+    private void colocar(String nombre) {
+        cnx.obtener();
+        Guardar.lblHotel.setText(null);
+        Guardar.precioHotel.setText(null);
+        Guardar.lblHabitaciones.setText(null);
+        Guardar.precioHabitaciones.setText(null);
+        Guardar.lblAlimentacion.setText(null);
+        Guardar.precioAlimentacion.setText(null);
+        Guardar.precioTotal.setText((0.00) + "");
+        Guardar.lblHotel.setText(nombre);
+
+        Guardar.precioHotel.setText(((double) (tabla.buscar(DATO, TABLA, "nombre", nombre))) + "");
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atacames;

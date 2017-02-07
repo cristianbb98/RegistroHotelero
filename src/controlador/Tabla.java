@@ -1,3 +1,4 @@
+//http://www.chuidiang.com/java/mysql/mysql-java-basico.php
 package controlador;
 
 import java.sql.PreparedStatement;
@@ -5,15 +6,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import modelo.*;
+import vista.Gestion;
+import vista.Guardar;
+import vista.Reservacion;
 
 public class Tabla {
+
+    private Validacion validar;
 
     private Cliente cliente;
     private Conexion cnx;
     private Habitacion habitacion;
     private Edificio edificio;
     private Empleado empleado;
+    private PreparedStatement ps;
 
     public Tabla() {
     }
@@ -31,75 +39,38 @@ public class Tabla {
     }
 
     //insertar datos en la bd
-    public int agregarValores(Object objeto, int opc) {
+    public int agregarValores(Cliente cliente) {
         int valor = 0;
-        switch (opc) {
-            case 1:
+
+        if (buscar("ci", "persona", "ci", cliente.getCi()) == null) {
+            if (buscar("usuario", "persona", "usuario", cliente.getUsuario()) == null) {
 
                 try {
-                    cliente = (Cliente) objeto;
-                    //preparar coneccion
-                    //            PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO tablacliente VALUES (?,?)"); 
-                    //            ps.setString(1,"Cristian");
-                    //            ps.setString(2, "Betancourt");
-                    PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO cliente" + " VALUES (" + cliente.getNombre() + ", " + cliente.getApellido() + ", " + cliente.getNacionalidad() + ", " + cliente.getCi() + ", " + cliente.getFechadenacimiento() + ", " + cliente.getNumeroTelefonico() + ", " + cliente.getUsuario() + ", " + cliente.getClave() + ", " + 1 + ")");
-//                    PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO cliente" + " VALUES ('Cristian', 'Betancourt', 'ECUADOR´,'1718057688', '09/03/1998', '0984190613', 'usuario','clave',?, 001,?)");
-                    System.out.println(cliente.getNombre());
-//            "INSERT INTO Customers " + "VALUES (1001, 'Simpson', 'Mr.', 'Springfield', 2001)");
+                    ps = cnx.getCnx().prepareStatement("INSERT INTO persona (nombre, apellido, nacionalidad, ci, fechadenacimiento, numeroTelefonico)" + " VALUES ('" + cliente.getNombre() + "','" + cliente.getApellido() + "',' " + cliente.getNacionalidad() + "','" + cliente.getCi() + "','" + cliente.getFechadenacimiento() + "','" + cliente.getNumeroTelefonico() + "')");
                     valor = ps.executeUpdate();
+
                 } catch (SQLException ex) {
                     valor = -1;
                 }
-                cnx.cerrar();
-
-                break;
-
-            case 2:
 
                 try {
-                    habitacion = (Habitacion) objeto;
-                    PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO cliente" + " VALUES (" + cliente.getNombre() + ", " + cliente.getApellido() + ", " + cliente.getNacionalidad() + ", " + cliente.getCi() + ", " + cliente.getFechadenacimiento() + ", " + cliente.getNumeroTelefonico() + ", " + cliente.getUsuario() + ", " + cliente.getClave() + ", " + 1 + ")");
-
-                    System.out.println(cliente.getNombre());
-
+                    ps = cnx.getCnx().prepareStatement("INSERT INTO cliente (usuario, clave, codigoCliente, persona_ci)" + " VALUES ('" + cliente.getUsuario() + "','" + cliente.getClave() + "'," + 001 + ",'" + cliente.getCi() + "')");
                     valor = ps.executeUpdate();
                 } catch (SQLException ex) {
-                    valor = -1;
+                    Logger.getLogger(Tabla.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                cnx.cerrar();
 
-                break;
+            } else {
 
-            case 3:
+                JOptionPane.showMessageDialog(null, "Usuario ya existente");
+                valor = -1;
+            }
 
-                try {
-                    edificio = (Edificio) objeto;
-                    PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO cliente" + " VALUES (" + cliente.getNombre() + ", " + cliente.getApellido() + ", " + cliente.getNacionalidad() + ", " + cliente.getCi() + ", " + cliente.getFechadenacimiento() + ", " + cliente.getNumeroTelefonico() + ", " + cliente.getUsuario() + ", " + cliente.getClave() + ", " + 1 + ")");
-//                   
-                    System.out.println(cliente.getNombre());
-//            
-                    valor = ps.executeUpdate();
-                } catch (SQLException ex) {
-                    valor = -1;
-                }
-                cnx.cerrar();
-
-                break;
-
-            case 4:
-
-                try {
-                    empleado = (Empleado) objeto;
-                    PreparedStatement ps = cnx.getCnx().prepareStatement("INSERT INTO cliente" + " VALUES (" + cliente.getNombre() + ", " + cliente.getApellido() + ", " + cliente.getNacionalidad() + ", " + cliente.getCi() + ", " + cliente.getFechadenacimiento() + ", " + cliente.getNumeroTelefonico() + ", " + cliente.getUsuario() + ", " + cliente.getClave() + ", " + 1 + ")");
-//                               
-                    valor = ps.executeUpdate();
-                } catch (SQLException ex) {
-                    valor = -1;
-                }
-                cnx.cerrar();
-
-                break;
+        } else {
+            JOptionPane.showMessageDialog(null, "Numero de cédula ya registrada");
+            valor = -1;
         }
+
         return valor;
     }
 
@@ -107,18 +78,115 @@ public class Tabla {
 //    public void buscarTodo(String ID) {
 
         try {
-            PreparedStatement ps = cnx.getCnx().prepareStatement("SELECT * FROM TablaCliente;");
+            PreparedStatement ps = cnx.getCnx().prepareStatement("SELECT * FROM cliente;");
             ResultSet resultado = ps.executeQuery();
+
             while (resultado.next()) {
                 //crear un new tabla para pasar parametros
+
 //                System.out.println(resultado.getInt("codigo"));
 //                System.out.println(resultado.getDouble("parametro1"));
 //                System.out.println(resultado.getDouble("parametro2"));
-
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Tabla.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Tabla.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         cnx.cerrar();
     }
+
+    public void logear(String usuario) {
+//    public void buscarTodo(String ID) {
+
+        String entrada = "";
+        String admin = "admin";
+        if (usuario.equals(admin)) {
+            new Gestion().setVisible(true);
+        } else {
+
+            try {
+                ps = cnx.getCnx().prepareStatement("SELECT * FROM persona WHERE ci='" + usuario + "'");
+                ResultSet resultado = ps.executeQuery();
+
+                while (resultado.next()) {
+                    entrada = resultado.getString("ci");
+                    System.out.println(entrada);
+                    System.out.println(resultado.getString("nombre"));
+                    System.out.println("entro");
+
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Tabla.class
+                        .getName()).log(Level.SEVERE, null, ex);
+
+            }
+            if (entrada.equals(usuario)) {
+                new Reservacion().setVisible(true);
+                new Guardar().setVisible(true);
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas");
+
+            }
+        }
+        cnx.cerrar();
+
+    }
+
+    public void logear(String usuario, String clave) {
+        cliente = null;
+        String admin = "admin";
+        if (usuario.equals(admin) && clave.equals(validar.encriptaEnMD5(validar.encriptaEnMD5(admin)))) {
+            new Gestion().setVisible(true);
+        } else {
+
+            String entrada = "";
+
+            try {
+                ps = cnx.getCnx().prepareStatement("SELECT * FROM cliente WHERE usuario='" + usuario + "' && clave ='" + clave + "'");
+                ResultSet resultado = ps.executeQuery();
+
+                while (resultado.next()) {
+                    cliente.setUsuario(resultado.getString("usuario"));
+                    cliente.setClave(resultado.getString("clave"));
+                    cliente.setCodigoUsuario(resultado.getInt("codigoCliente"));
+
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Tabla.class
+                        .getName()).log(Level.SEVERE, null, ex);
+
+            }
+            if (cliente.getClave().equals(clave) && cliente.getUsuario().equals(usuario)) {
+                new Reservacion(cliente).setVisible(true);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas");
+
+            }
+
+        }
+        cnx.cerrar();
+
+    }
+
+    public Object buscar(String dato, String tabla, String busqueda, String igual) {
+//    public void buscarTodo(String ID) {
+        Object objeto = null;
+        try {
+            PreparedStatement ps = cnx.getCnx().prepareStatement("SELECT " + dato + " FROM " + tabla + " WHERE " + busqueda + "='" + igual + "';");
+            ResultSet resultado = ps.executeQuery();
+            while (resultado.next()) {
+                objeto = resultado.getObject(dato);
+            }
+        } catch (SQLException ex) {
+//            Logger.getLogger(Tabla.class.getName()).log(Level.SEVERE, null, ex);
+            objeto = null;
+        }
+
+        return objeto;
+    }
+
 }
