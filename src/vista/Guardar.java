@@ -5,15 +5,12 @@
  */
 package vista;
 
-
 public class Guardar extends javax.swing.JFrame {
 
-   
     public Guardar() {
         initComponents();
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -27,7 +24,6 @@ public class Guardar extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         lblAlimentacion = new javax.swing.JLabel();
-        lblHabitaciones = new javax.swing.JLabel();
         precioHabitaciones = new javax.swing.JLabel();
         lblhabitacion4 = new javax.swing.JLabel();
         lblhabitacion5 = new javax.swing.JLabel();
@@ -35,6 +31,7 @@ public class Guardar extends javax.swing.JFrame {
         lblhabitacion7 = new javax.swing.JLabel();
         precioAlimentacion = new javax.swing.JLabel();
         precioTotal = new javax.swing.JLabel();
+        cbxHabitaciones = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         reservar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -43,14 +40,12 @@ public class Guardar extends javax.swing.JFrame {
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        lblHotel.setText("jLabel1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 69;
-        gridBagConstraints.ipady = 13;
+        gridBagConstraints.ipady = 27;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(45, 6, 0, 0);
         jPanel1.add(lblHotel, gridBagConstraints);
@@ -61,20 +56,22 @@ public class Guardar extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 49;
         gridBagConstraints.ipady = 70;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 101, 14, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 141, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
         preciototal.setText("$");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 4;
         gridBagConstraints.ipady = 70;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 18, 14, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
         jPanel1.add(preciototal, gridBagConstraints);
 
         jLabel10.setText("Hotel:");
@@ -84,7 +81,7 @@ public class Guardar extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 68;
         gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(45, 66, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(45, 106, 0, 0);
         jPanel1.add(jLabel10, gridBagConstraints);
 
         jLabel11.setText("Alimentacion:");
@@ -94,7 +91,7 @@ public class Guardar extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 33;
         gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 66, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 106, 0, 0);
         jPanel1.add(jLabel11, gridBagConstraints);
 
         jLabel12.setText("Habitaciones:");
@@ -104,40 +101,25 @@ public class Guardar extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 32;
         gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 66, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 106, 0, 0);
         jPanel1.add(jLabel12, gridBagConstraints);
-
-        lblAlimentacion.setText("jLabel1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 69;
-        gridBagConstraints.ipady = 13;
+        gridBagConstraints.ipady = 27;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 6, 0, 0);
         jPanel1.add(lblAlimentacion, gridBagConstraints);
-
-        lblHabitaciones.setText("jLabel1");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 69;
-        gridBagConstraints.ipady = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 6, 0, 0);
-        jPanel1.add(lblHabitaciones, gridBagConstraints);
-
-        precioHabitaciones.setText("jLabel1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 13;
+        gridBagConstraints.ipady = 27;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 10, 0, 57);
+        gridBagConstraints.insets = new java.awt.Insets(18, 10, 0, 153);
         jPanel1.add(precioHabitaciones, gridBagConstraints);
 
         lblhabitacion4.setText("$");
@@ -157,16 +139,14 @@ public class Guardar extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 10, 0, 0);
         jPanel1.add(lblhabitacion5, gridBagConstraints);
-
-        precioHotel.setText("jLabel1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 13;
+        gridBagConstraints.ipady = 27;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(45, 10, 0, 57);
+        gridBagConstraints.insets = new java.awt.Insets(45, 10, 0, 153);
         jPanel1.add(precioHotel, gridBagConstraints);
 
         lblhabitacion7.setText("$");
@@ -177,20 +157,17 @@ public class Guardar extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 10, 0, 0);
         jPanel1.add(lblhabitacion7, gridBagConstraints);
-
-        precioAlimentacion.setText("jLabel1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 13;
+        gridBagConstraints.ipady = 27;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 10, 0, 57);
+        gridBagConstraints.insets = new java.awt.Insets(18, 10, 0, 153);
         jPanel1.add(precioAlimentacion, gridBagConstraints);
 
         precioTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        precioTotal.setText("jLabel1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
@@ -198,8 +175,25 @@ public class Guardar extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 47;
         gridBagConstraints.ipady = 70;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 6, 14, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 6, 0, 0);
         jPanel1.add(precioTotal, gridBagConstraints);
+
+        cbxHabitaciones.setMaximumRowCount(2);
+        cbxHabitaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "codigo" }));
+        cbxHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxHabitacionesActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 4, 0, 0);
+        jPanel1.add(cbxHabitaciones, gridBagConstraints);
 
         getContentPane().add(jPanel1);
 
@@ -216,31 +210,10 @@ public class Guardar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    public void colocar(String datos, String precio, int opc){
-   
-    switch(opc){
-    
-        case 1:
-            lblHotel.setText(datos);
-            precioHotel.setText(precio);
-            break;
-            
-            case 2:
-            lblHabitaciones.setText(datos);
-            precioHabitaciones.setText(precio);
-            break;
-            
-            case 3:
-            lblAlimentacion.setText(datos);
-            precioAlimentacion.setText(precio);
-            break;
-        
-    }
-    
-    
-    
-    } 
+    private void cbxHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxHabitacionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxHabitacionesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -277,6 +250,7 @@ public class Guardar extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JComboBox<String> cbxHabitaciones;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -285,7 +259,6 @@ public class Guardar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public static javax.swing.JLabel lblAlimentacion;
-    public static javax.swing.JLabel lblHabitaciones;
     public static javax.swing.JLabel lblHotel;
     private javax.swing.JLabel lblhabitacion4;
     private javax.swing.JLabel lblhabitacion5;

@@ -7,6 +7,7 @@ package vista;
 
 import controlador.Conexion;
 import controlador.Tabla;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -17,7 +18,7 @@ public class FrameEdificio extends javax.swing.JInternalFrame {
     public final String TABLA = "edificio";
     private final String DATO = "precio";
     private String nombre;
-
+    private DefaultComboBoxModel<String> def = new DefaultComboBoxModel<>();
     private Conexion cnx = new Conexion();
     private Tabla tabla = new Tabla(cnx);
 
@@ -149,17 +150,17 @@ public class FrameEdificio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_salinasActionPerformed
 
     private void colocar(String nombre) {
-        cnx.obtener();
+        def.addElement("codigo");
         Guardar.lblHotel.setText(null);
         Guardar.precioHotel.setText(null);
-        Guardar.lblHabitaciones.setText(null);
+        Guardar.cbxHabitaciones.setModel(def);
         Guardar.precioHabitaciones.setText(null);
         Guardar.lblAlimentacion.setText(null);
         Guardar.precioAlimentacion.setText(null);
         Guardar.precioTotal.setText((0.00) + "");
         Guardar.lblHotel.setText(nombre);
 
-        Guardar.precioHotel.setText(((double) (tabla.buscar(DATO, TABLA, "nombre", nombre))) + "");
+        Guardar.precioHotel.setText(((double) (tabla.buscarString(DATO, TABLA, "nombre", nombre))) + "");
 
     }
 

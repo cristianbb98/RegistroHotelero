@@ -16,8 +16,8 @@ public class Tabla {
 
     private Validacion validar;
 
-    private Cliente cliente;
-    private Conexion cnx;
+    private Cliente cliente = new Cliente();
+    private Conexion cnx = new Conexion();
     private Habitacion habitacion;
     private Edificio edificio;
     private Empleado empleado;
@@ -42,14 +42,16 @@ public class Tabla {
     public int agregarValores(Cliente cliente) {
         int valor = 0;
 
-        if (buscar("ci", "persona", "ci", cliente.getCi()) == null) {
-            if (buscar("usuario", "persona", "usuario", cliente.getUsuario()) == null) {
+        if (buscarString("ci", "persona", "ci", cliente.getCi()) == null) {
+
+            if (buscarString("usuario", "cliente", "usuario", cliente.getUsuario()) == null) {
 
                 try {
                     ps = cnx.getCnx().prepareStatement("INSERT INTO persona (nombre, apellido, nacionalidad, ci, fechadenacimiento, numeroTelefonico)" + " VALUES ('" + cliente.getNombre() + "','" + cliente.getApellido() + "',' " + cliente.getNacionalidad() + "','" + cliente.getCi() + "','" + cliente.getFechadenacimiento() + "','" + cliente.getNumeroTelefonico() + "')");
-                    valor = ps.executeUpdate();
+                    ps.executeUpdate();
 
                 } catch (SQLException ex) {
+
                     valor = -1;
                 }
 
@@ -57,15 +59,13 @@ public class Tabla {
                     ps = cnx.getCnx().prepareStatement("INSERT INTO cliente (usuario, clave, codigoCliente, persona_ci)" + " VALUES ('" + cliente.getUsuario() + "','" + cliente.getClave() + "'," + 001 + ",'" + cliente.getCi() + "')");
                     valor = ps.executeUpdate();
                 } catch (SQLException ex) {
-                    Logger.getLogger(Tabla.class.getName()).log(Level.SEVERE, null, ex);
+                    valor = -1;
                 }
 
             } else {
-
                 JOptionPane.showMessageDialog(null, "Usuario ya existente");
                 valor = -1;
             }
-
         } else {
             JOptionPane.showMessageDialog(null, "Numero de cédula ya registrada");
             valor = -1;
@@ -135,7 +135,12 @@ public class Tabla {
     }
 
     public void logear(String usuario, String clave) {
-        cliente = null;
+        int codigo = 0;
+        String nombre = "";
+        String apellido = "";
+        String user = "";
+        String pass = "";
+        String ci = "";
         String admin = "admin";
         if (usuario.equals(admin) && clave.equals(validar.encriptaEnMD5(validar.encriptaEnMD5(admin)))) {
             new Gestion().setVisible(true);
@@ -144,36 +149,43 @@ public class Tabla {
             String entrada = "";
 
             try {
+
                 ps = cnx.getCnx().prepareStatement("SELECT * FROM cliente WHERE usuario='" + usuario + "' && clave ='" + clave + "'");
                 ResultSet resultado = ps.executeQuery();
 
-                while (resultado.next()) {
-                    cliente.setUsuario(resultado.getString("usuario"));
-                    cliente.setClave(resultado.getString("clave"));
-                    cliente.setCodigoUsuario(resultado.getInt("codigoCliente"));
+                if (resultado.next()) {
+                    pass = resultado.getString("clave");
+                    user = resultado.getString("usuario");
+                    ci = resultado.getString("persona_ci");
+                }
+
+                nombre = buscarString("nombre", "persona", "ci", ci).toString();
+                apellido = buscarString("apellido", "persona", "ci", ci).toString();
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas");
+            } finally {
+                if (user.equals(usuario) && pass.equals(clave)) {
+                    new Reservacion(new Cliente(nombre, apellido, ci, user, pass)).setVisible(true);
+                    new Guardar().setVisible(true);
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas");
 
                 }
 
-            } catch (SQLException ex) {
-                Logger.getLogger(Tabla.class
-                        .getName()).log(Level.SEVERE, null, ex);
-
             }
-            if (cliente.getClave().equals(clave) && cliente.getUsuario().equals(usuario)) {
-                new Reservacion(cliente).setVisible(true);
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas");
-
-            }
+//                
 
         }
         cnx.cerrar();
 
     }
 
-    public Object buscar(String dato, String tabla, String busqueda, String igual) {
+    public Object buscarString(String dato, String tabla, String busqueda, String igual) {
 //    public void buscarTodo(String ID) {
+        cnx.obtener();
         Object objeto = null;
         try {
             PreparedStatement ps = cnx.getCnx().prepareStatement("SELECT " + dato + " FROM " + tabla + " WHERE " + busqueda + "='" + igual + "';");
@@ -186,6 +198,23 @@ public class Tabla {
             objeto = null;
         }
 
+        return objeto;
+    }
+
+    public Object buscarNumero(String dato, String tabla, String busqueda, String igual) {
+//    public void buscarTodo(String ID) {
+        Object objeto = null;
+        try {
+            PreparedStatement ps = cnx.getCnx().prepareStatement("SELECT " + dato + " FROM " + tabla + " WHERE " + busqueda + "=" + igual + ";");
+            ResultSet resultado = ps.executeQuery();
+            while (resultado.next()) {
+                objeto = resultado.getObject(dato);
+            }
+        } catch (SQLException ex) {
+//            Logger.getLogger(Tabla.class.getName()).log(Level.SEVERE, null, ex);
+            objeto = null;
+        }
+        cnx.cerrar();
         return objeto;
     }
 

@@ -5,15 +5,26 @@
  */
 package vista;
 
+import controlador.Conexion;
+import controlador.HiloHabitacion;
+import controlador.Tabla;
 import java.util.*;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 public class FrameHabitacion extends javax.swing.JInternalFrame {
 
     public String edificio;
     public List<JRadioButton> lista = new ArrayList();
+    private int contador = 0;
+    private DefaultComboBoxModel<String> model = new DefaultComboBoxModel();
+    private Conexion cnx = new Conexion();
+    private Tabla tabla = new Tabla(cnx);
+    private int codigo;
+    private String cod = "";
 
-    public FrameHabitacion() {
+    public FrameHabitacion(int codigo) {
         initComponents();
         lista.add(hb101);
         lista.add(hb102);
@@ -24,7 +35,11 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
         lista.add(hb301);
         lista.add(hb302);
         lista.add(hb303);
+        this.codigo = codigo;
+//               HiloHabitacion hilo = new HiloHabitacion(codigo, lista);
+//        hilo.start();
         this.setVisible(true);
+
     }
 
     /**
@@ -95,8 +110,21 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Piso #1:        ");
         jPanel15.add(jLabel3);
+
+        hb101.setName("101"); // NOI18N
+        hb101.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hb101ActionPerformed(evt);
+            }
+        });
+        hb101.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                hb101PropertyChange(evt);
+            }
+        });
         jPanel15.add(hb101);
 
+        hb102.setName("102"); // NOI18N
         hb102.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hb102ActionPerformed(evt);
@@ -104,6 +132,7 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
         });
         jPanel15.add(hb102);
 
+        hb103.setName("103"); // NOI18N
         hb103.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hb103ActionPerformed(evt);
@@ -120,6 +149,7 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
         jLabel1.setText("Piso #2:        ");
         jPanel4.add(jLabel1);
 
+        hb201.setName("201"); // NOI18N
         hb201.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hb201ActionPerformed(evt);
@@ -128,6 +158,7 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
         jPanel4.add(hb201);
 
         hb202.setForeground(new java.awt.Color(153, 255, 51));
+        hb202.setName("202"); // NOI18N
         hb202.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hb202ActionPerformed(evt);
@@ -135,6 +166,7 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
         });
         jPanel4.add(hb202);
 
+        hb203.setName("203"); // NOI18N
         hb203.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hb203ActionPerformed(evt);
@@ -150,6 +182,7 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
         jLabel2.setText("Piso #3:        ");
         jPanel14.add(jLabel2);
 
+        hb301.setName("301"); // NOI18N
         hb301.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hb301ActionPerformed(evt);
@@ -157,6 +190,7 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
         });
         jPanel14.add(hb301);
 
+        hb302.setName("302"); // NOI18N
         hb302.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hb302ActionPerformed(evt);
@@ -164,6 +198,7 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
         });
         jPanel14.add(hb302);
 
+        hb303.setName("303"); // NOI18N
         hb303.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hb303ActionPerformed(evt);
@@ -189,37 +224,107 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void hb201ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb201ActionPerformed
+    private void hb101PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_hb101PropertyChange
 
+    }//GEN-LAST:event_hb101PropertyChange
+
+    private void hb101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb101ActionPerformed
+        seleccionar(hb101);
+    }//GEN-LAST:event_hb101ActionPerformed
+
+    private void hb102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb102ActionPerformed
+        seleccionar(hb102);
+
+    }//GEN-LAST:event_hb102ActionPerformed
+
+    private void hb103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb103ActionPerformed
+        seleccionar(hb103);
+
+    }//GEN-LAST:event_hb103ActionPerformed
+
+    private void hb201ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb201ActionPerformed
+        seleccionar(hb201);
     }//GEN-LAST:event_hb201ActionPerformed
 
     private void hb202ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb202ActionPerformed
-
+        seleccionar(hb202);
     }//GEN-LAST:event_hb202ActionPerformed
 
     private void hb203ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb203ActionPerformed
-
+        seleccionar(hb203);
     }//GEN-LAST:event_hb203ActionPerformed
 
     private void hb301ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb301ActionPerformed
-        // TODO add your handling code here:
+        seleccionar(hb301);
     }//GEN-LAST:event_hb301ActionPerformed
 
     private void hb302ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb302ActionPerformed
-        // TODO add your handling code here:
+        seleccionar(hb302);
     }//GEN-LAST:event_hb302ActionPerformed
 
     private void hb303ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb303ActionPerformed
-        // TODO add your handling code here:
+        seleccionar(hb303);
     }//GEN-LAST:event_hb303ActionPerformed
 
-    private void hb103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb103ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_hb103ActionPerformed
+    private void seleccionar(JRadioButton btn) {
 
-    private void hb102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hb102ActionPerformed
+        if (btn.isSelected() && btn.isEnabled()) {
 
-    }//GEN-LAST:event_hb102ActionPerformed
+            if (contador > 1) {
+                JOptionPane.showMessageDialog(null, "No puede reservar mas de 2 Habitaciones");
+                btn.setSelected(false);
+
+            } else if (contador <=2) {
+                model.addElement(btn.getName());
+                contador++;
+                btn.setSelected(true);
+
+            }
+
+        } else if (!(btn.isSelected()) && btn.isEnabled()) {
+            if (model.getElementAt(0).equals(btn.getName())) {
+                model.removeElementAt(0);
+            } else {
+                model.removeElementAt(1);
+            }
+            contador--;
+        }
+        Guardar.cbxHabitaciones.setModel(model);
+        String cod1 = getCodigo(model.getElementAt(0));
+        System.out.println(cod1);
+
+        if (contador > 1) {
+            System.out.println(getCodigo(model.getElementAt(1)));
+            Guardar.precioHabitaciones.setText((((double) (tabla.buscarString("precioTipo", "habitacion", "codigo_habitacion", getCodigo(model.getElementAt(1))))) + ((double) (tabla.buscarString("precioTipo", "habitacion", "codigo_habitacion", cod1)))) + "");
+//            Guardar.precioHabitaciones.setText((((double) (tabla.buscarNumero("precioTipo", "habitacion", "codigo_habitacion", cod1))) + ((double) (tabla.buscarNumero("precioTipo", "habitacion", "codigo_habitacion", cod2)))) + "");
+        } else if (contador == 1) {
+//            Guardar.precioHabitaciones.setText(((double) (tabla.buscarNumero("precioTipo", "habitacion", "codigo_habitacion", cod1))) + "");
+            Guardar.precioHabitaciones.setText(((double) (tabla.buscarString("precioTipo", "habitacion", "codigo_habitacion", cod1))) + "");
+
+        } else if (contador == 0) {
+            Guardar.precioHabitaciones.setText("0.00");
+        }
+
+    }
+
+    public String getCodigo(String opc) {
+
+        switch (codigo) {
+            case 1:
+                opc = "Ah" + opc;
+                break;
+            case 2:
+                opc = "Ch" + opc;
+                break;
+            case 3:
+                opc = "Th" + opc;
+                break;
+            case 4:
+                opc = "Sh" + opc;
+                break;
+        }
+        return opc;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

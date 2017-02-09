@@ -10,9 +10,9 @@ import javax.swing.*;
 import modelo.*;
 
 public class Registros extends javax.swing.JFrame {
-
+    
     private Date date = new Date();
-
+    
     private Conexion conexion = new Conexion();
     private controlador.Validacion validar = new controlador.Validacion();
     private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
@@ -22,12 +22,12 @@ public class Registros extends javax.swing.JFrame {
     public Empleado empleado;
     private String ciudadania;
     private Date date2 = new Date();
-
+    
     public Registros() {
         initComponents();
         setLocationRelativeTo(null);
         nacionalidad.setModel(nacionalidad());
-
+        
     }
 
     /**
@@ -73,68 +73,196 @@ public class Registros extends javax.swing.JFrame {
 
         panelGeneral.setLayout(new java.awt.GridBagLayout());
 
+        panelDatos.setLayout(new java.awt.GridBagLayout());
+
         jLabel1.setText("Nombres:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 62;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(14, 32, 0, 0);
+        panelDatos.add(jLabel1, gridBagConstraints);
 
         txtnombres.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtnombresKeyTyped(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 226;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 35, 0, 10);
+        panelDatos.add(txtnombres, gridBagConstraints);
 
         jLabel2.setText("Apellidos:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 62;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(14, 32, 0, 0);
+        panelDatos.add(jLabel2, gridBagConstraints);
 
         txtapellidos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtapellidosKeyTyped(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 226;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 35, 0, 10);
+        panelDatos.add(txtapellidos, gridBagConstraints);
 
         jLabel3.setText("Cédula o Pasaporte:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.ipadx = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(14, 32, 0, 0);
+        panelDatos.add(jLabel3, gridBagConstraints);
 
         txtci.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtciKeyTyped(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 226;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 35, 0, 10);
+        panelDatos.add(txtci, gridBagConstraints);
 
         jLabel4.setText("Fecha Nacimiento:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(17, 32, 0, 0);
+        panelDatos.add(jLabel4, gridBagConstraints);
 
         jLabel5.setText("Nacionalidad:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 44;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(14, 32, 0, 0);
+        panelDatos.add(jLabel5, gridBagConstraints);
 
         jLabel6.setText("Número Telefónico:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(9, 32, 0, 0);
+        panelDatos.add(jLabel6, gridBagConstraints);
 
         txttelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txttelefonoKeyTyped(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 226;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 35, 0, 10);
+        panelDatos.add(txttelefono, gridBagConstraints);
 
         jLabel7.setText("Usuario:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.ipadx = 68;
+        gridBagConstraints.ipady = -1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 32, 0, 0);
+        panelDatos.add(jLabel7, gridBagConstraints);
 
         txtusuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtusuarioKeyTyped(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 226;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 35, 0, 10);
+        panelDatos.add(txtusuario, gridBagConstraints);
 
         jLabel8.setText("Contraseña:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.ipadx = 48;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(14, 32, 0, 0);
+        panelDatos.add(jLabel8, gridBagConstraints);
 
         txtclave1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtclave1KeyTyped(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 226;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 35, 0, 10);
+        panelDatos.add(txtclave1, gridBagConstraints);
 
         jProgressBar1.setForeground(new java.awt.Color(10, 200, 100));
         jProgressBar1.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.ipadx = 222;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 35, 0, 10);
+        panelDatos.add(jProgressBar1, gridBagConstraints);
 
         jLabel9.setText("Validacion contraseña:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(14, 32, 0, 0);
+        panelDatos.add(jLabel9, gridBagConstraints);
 
         txtclave2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtclave2KeyTyped(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 226;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 35, 0, 10);
+        panelDatos.add(txtclave2, gridBagConstraints);
 
         nacionalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE UN PAIS" }));
         nacionalidad.addActionListener(new java.awt.event.ActionListener() {
@@ -142,130 +270,36 @@ public class Registros extends javax.swing.JFrame {
                 nacionalidadActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
-        panelDatos.setLayout(panelDatosLayout);
-        panelDatosLayout.setHorizontalGroup(
-            panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel1)
-                .addGap(97, 97, 97)
-                .addComponent(txtnombres, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel2)
-                .addGap(97, 97, 97)
-                .addComponent(txtapellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel5)
-                .addGap(79, 79, 79)
-                .addComponent(nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel3)
-                .addGap(45, 45, 45)
-                .addComponent(txtci, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel4)
-                .addGap(56, 56, 56)
-                .addComponent(nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel6)
-                .addGap(50, 50, 50)
-                .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel7)
-                .addGap(103, 103, 103)
-                .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel8)
-                .addGap(83, 83, 83)
-                .addComponent(txtclave1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(199, 199, 199)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel9)
-                .addGap(35, 35, 35)
-                .addComponent(txtclave2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(199, 199, 199)
-                .addComponent(lblconfirmacion, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        panelDatosLayout.setVerticalGroup(
-            panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel1))
-                    .addComponent(txtnombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel2))
-                    .addComponent(txtapellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel5))
-                    .addComponent(nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel3))
-                    .addComponent(txtci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel4))
-                    .addComponent(nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel6))
-                    .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel7))
-                    .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel8))
-                    .addComponent(txtclave1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel9))
-                    .addComponent(txtclave2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addComponent(lblconfirmacion, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 102;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 35, 0, 10);
+        panelDatos.add(nacionalidad, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.ipadx = 232;
+        gridBagConstraints.ipady = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 35, 0, 10);
+        panelDatos.add(lblconfirmacion, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 205;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(16, 35, 0, 10);
+        panelDatos.add(nacimiento, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         panelGeneral.add(panelDatos, gridBagConstraints);
 
         panelBotones.setLayout(new java.awt.GridBagLayout());
@@ -362,91 +396,93 @@ public class Registros extends javax.swing.JFrame {
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
         int value = -1;
         
-            String nombres = txtnombres.getText();
-            String apellidos = txtapellidos.getText();
-            String id = txtci.getText();
-            Date fechaNacimiento;
-            fechaNacimiento = fechaNacimiento();
-            int codigo;
+        String nombres = txtnombres.getText();
+        String apellidos = txtapellidos.getText();
+        String id = txtci.getText();
+        Date fechaNacimiento;
+        fechaNacimiento = fechaNacimiento();
+        int codigo;
+        
+        String telefono = txttelefono.getText();
+        String usuario = txtusuario.getText();
+        clave1 = txtclave1.getText();
+        clave2 = txtclave2.getText();
+        
+        List<String> campos = new ArrayList<>();
+        campos.add(nombres);
+        campos.add(apellidos);
+        campos.add(id);
+        campos.add(telefono);
+        campos.add(usuario);
+        campos.add(clave1);
+        campos.add(clave2);
+        
+        List<Integer> camposVacios = validar.camposVacios(campos);
+        if (!camposVacios.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campos obligatorios vacios"); //mensaje
 
-            String telefono = txttelefono.getText();
-            String usuario = txtusuario.getText();
-            clave1 = txtclave1.getText();
-            clave2 = txtclave2.getText();
+            for (Integer camposVacio : camposVacios) {  //devuelve la psocion de la lista de campos vacios leyendo la lista
 
-            List<String> campos = new ArrayList<>();
-            campos.add(nombres);
-            campos.add(apellidos);
-            campos.add(id);
-            campos.add(telefono);
-            campos.add(usuario);
-            campos.add(clave1);
-            campos.add(clave2);
-
-            List<Integer> camposVacios = validar.camposVacios(campos);
-            if (!camposVacios.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Campos obligatorios vacios"); //mensaje
-
-                for (Integer camposVacio : camposVacios) {  //devuelve la psocion de la lista de campos vacios leyendo la lista
-
-                    switch (camposVacio) {
-                        case 0:
-                            txtnombres.setBackground(Color.red);
-                            break;
-                        case 1:
-                            txtapellidos.setBackground(Color.red);
-                            break;
-                        case 2:
-                            txtci.setBackground(Color.red);
-                            break;
-                        case 3:
-                            txttelefono.setBackground(Color.red);
-                            break;
-                        case 4:
-                            txtusuario.setBackground(Color.red);
-                            break;
-                        case 5:
-                            txtclave1.setBackground(Color.red);
-                            break;
-                        case 6:
-                            txtclave2.setBackground(Color.red);
-                            lblconfirmacion.setForeground(Color.red);
-                            lblconfirmacion.setText("Contraseña incorrecta");
-                            break;
-
-                    }
+                switch (camposVacio) {
+                    case 0:
+                        txtnombres.setBackground(Color.red);
+                        break;
+                    case 1:
+                        txtapellidos.setBackground(Color.red);
+                        break;
+                    case 2:
+                        txtci.setBackground(Color.red);
+                        break;
+                    case 3:
+                        txttelefono.setBackground(Color.red);
+                        break;
+                    case 4:
+                        txtusuario.setBackground(Color.red);
+                        break;
+                    case 5:
+                        txtclave1.setBackground(Color.red);
+                        break;
+                    case 6:
+                        txtclave2.setBackground(Color.red);
+                        lblconfirmacion.setForeground(Color.red);
+                        lblconfirmacion.setText("Contraseña incorrecta");
+                        break;
+                    
                 }
-            } else if ((validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2)))) && fechaNacimiento != null && ciudadania != null) {
-                lblconfirmacion.setForeground(Color.green);
-                lblconfirmacion.setText("Contraseña correcta");
-
-                cliente = new Cliente(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, ciudadania, id, fechaNacimiento, telefono);
-                conexion.obtener();
-                if(new Tabla(conexion).agregarValores(cliente)==-1){
+            }
+        } else if ((validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2)))) && fechaNacimiento != null && ciudadania != null) {
+            lblconfirmacion.setForeground(Color.green);
+            lblconfirmacion.setText("Contraseña correcta");
+            
+            cliente = new Cliente(usuario, validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)), nombres, apellidos, ciudadania, id, fechaNacimiento, telefono);
+            conexion.obtener();
+            if (new Tabla(conexion).agregarValores(cliente) == -1) {
+                btnlimpiarActionPerformed(evt);
                 
-                }else{
-                    conexion.cerrar();
+            } else {
+                conexion.cerrar();
                 new Ingreso().setVisible(true);
                 dispose();
                 
-                }
-
-            } else if (!(validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2))))) {
-                lblconfirmacion.setForeground(Color.red);
-                lblconfirmacion.setText("Contraseña incorrecta");
-
-            } else if (fechaNacimiento == null) {
-                JOptionPane.showMessageDialog(null, "Fecha de nacimiento incorecta");
-
-            } else if (ciudadania == null) {
-                JOptionPane.showMessageDialog(null, "Nacionalidad incorrecta");
             }
-
+            
+        } else if (!(validar.encriptaEnMD5(validar.encriptaEnMD5(clave1)).equals(validar.encriptaEnMD5(validar.encriptaEnMD5(clave2))))) {
+            lblconfirmacion.setForeground(Color.red);
+            lblconfirmacion.setText("Contraseña incorrecta");
+            
+        } else if (fechaNacimiento == null) {
+            JOptionPane.showMessageDialog(null, "Fecha de nacimiento incorecta");
+            
+        } else if (ciudadania == null) {
+            JOptionPane.showMessageDialog(null, "Nacionalidad incorrecta");
+        }
         
+
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
         new Bienvenida().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnvolverActionPerformed
 
     private void txtclave1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtclave1KeyTyped
@@ -483,7 +519,7 @@ public class Registros extends javax.swing.JFrame {
         char c;
         letrasNumeros(c = evt.getKeyChar(), evt, 1);
     }//GEN-LAST:event_txtnombresKeyTyped
-
+    
     private void letrasNumeros(char c, java.awt.event.KeyEvent evt, int tipo) {
         switch (tipo) {
             case 1:
@@ -491,30 +527,30 @@ public class Registros extends javax.swing.JFrame {
                     evt.consume();
                 }
                 break;
-
+            
             case 2:
                 if ((c < '0' || c > '9') && (c < 'A' || c > 'Z')) {
                     evt.consume();
                 }
                 break;
-
+            
             case 3:
                 if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
                     evt.consume();
                 }
                 break;
-
+            
         }
-
+        
     }
-
+    
     private Date fechaNacimiento() {
         Date fechaNacimiento;
         date = new Date();
-
+        
         try {
             if (nacimiento.getDate().after(date)) {
-
+                
                 JOptionPane.showMessageDialog(null, "Fecha de nacimiento incorrecta");
                 fechaNacimiento = null;
             }
@@ -524,7 +560,7 @@ public class Registros extends javax.swing.JFrame {
         }
         return fechaNacimiento;
     }
-
+    
     private DefaultComboBoxModel nacionalidad() {
         DefaultComboBoxModel paises = new DefaultComboBoxModel();
         paises.addElement("SELECCIONE UN PAIS");

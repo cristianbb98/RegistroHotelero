@@ -18,6 +18,12 @@ public class Persona {
               
     }
 
+    public Persona(String nombre, String apellido, String ci) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.ci = ci;
+    }
+
     public Persona() {
     }
 

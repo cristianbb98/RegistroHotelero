@@ -5,35 +5,37 @@
  */
 package vista;
 
-
 import javax.swing.JOptionPane;
 import modelo.Cliente;
+import controlador.*;
 
 /**
  *
  * @author Toshiba
  */
 public class Reservacion extends javax.swing.JFrame {
-    
+
+    private Conexion cnx = new Conexion();
     private int contador = 0;
     private FrameEdificio hotel = new FrameEdificio();
-    private FrameHabitacion habitacion = new FrameHabitacion();
+    private FrameHabitacion habitacion;
     private FrameEstadia estadia = new FrameEstadia();
     private FrameAlimentacion alimentacion = new FrameAlimentacion();
     private FrameRevisar revisar = new FrameRevisar();
-    
-    
+
     public Reservacion(Cliente cliente) {
-        
+
         initComponents();
+        lblNombre.setText(cliente.getNombre() + " " + cliente.getApellido());
+        lblUsuario.setText(cliente.getUsuario());
         panelNombre.setToolTipText("Click para cerrar sesion");
         setTitle("RESERVACION");
-        
-        
+
     }
-    
+
     public Reservacion() {
         initComponents();
+        new Guardar().setVisible(true);
         setTitle("RESERVACION");
         setLocationRelativeTo(null);
         panelNombre.setToolTipText("Click para cerrar sesion");
@@ -159,9 +161,9 @@ public class Reservacion extends javax.swing.JFrame {
     }//GEN-LAST:event_opcGuardarActionPerformed
 
     private void opcionHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionHotelActionPerformed
-        
+
         cambioFrame(1);
-        
+
 
     }//GEN-LAST:event_opcionHotelActionPerformed
 
@@ -192,33 +194,35 @@ public class Reservacion extends javax.swing.JFrame {
     private void panelNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNombreMouseClicked
         System.out.println(JOptionPane.showConfirmDialog(null, "Desea cerrar cesion") + "");
     }//GEN-LAST:event_panelNombreMouseClicked
-    
+
     private void cambioFrame(int i) {
         panelGeneral.removeAll();
         switch (i) {
             case 1:
                 panelGeneral.add(hotel);
                 contador++;
-                
+
                 break;
-            
+
             case 2:
-                
-                panelGeneral.add(habitacion);
+
+                cnx.obtener();
+                int codigo = Integer.parseInt(new Tabla(cnx).buscarString("codigo", "edificio", "nombre", Guardar.lblHotel.getText()).toString());
+                panelGeneral.add(new FrameHabitacion(codigo));
                 contador++;
-                
+
                 break;
-            
+
             case 3:
                 panelGeneral.add(estadia);
                 contador++;
                 break;
-            
+
             case 4:
                 panelGeneral.add(alimentacion);
                 contador++;
                 break;
-            
+
             case 5:
                 panelGeneral.add(revisar);
                 contador++;

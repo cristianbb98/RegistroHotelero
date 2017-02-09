@@ -119,13 +119,26 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="hb101">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="101" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hb101ActionPerformed"/>
+                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="hb101PropertyChange"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="hb102">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="102" noResource="true"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hb102ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="hb103">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="103" noResource="true"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hb103ActionPerformed"/>
                   </Events>
@@ -152,6 +165,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="hb201">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="201" noResource="true"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hb201ActionPerformed"/>
                   </Events>
@@ -161,12 +177,16 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="ff" red="99" type="rgb"/>
                     </Property>
+                    <Property name="name" type="java.lang.String" value="202" noResource="true"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hb202ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="hb203">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="203" noResource="true"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hb203ActionPerformed"/>
                   </Events>
@@ -190,16 +210,25 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="hb301">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="301" noResource="true"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hb301ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="hb302">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="302" noResource="true"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hb302ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="hb303">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="303" noResource="true"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hb303ActionPerformed"/>
                   </Events>

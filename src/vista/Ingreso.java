@@ -147,8 +147,7 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void btningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningresarActionPerformed
             cnx.obtener();
-//            new Tabla(cnx).logear(txtusuario.getText(), validar.encriptaEnMD5(validar.encriptaEnMD5(txtclave.getText())));
-            new Tabla(cnx).logear(txtusuario.getText());
+            new Tabla(cnx).logear(txtusuario.getText(), validar.encriptaEnMD5(validar.encriptaEnMD5(txtclave.getText())));
             dispose();
         
        
