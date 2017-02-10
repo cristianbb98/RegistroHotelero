@@ -14,28 +14,33 @@ import controlador.*;
  * @author Toshiba
  */
 public class Reservacion extends javax.swing.JFrame {
-
+    
     private Conexion cnx = new Conexion();
+    public Guardar guardar;
     private int contador = 0;
     private FrameEdificio hotel = new FrameEdificio();
     private FrameHabitacion habitacion;
     private FrameEstadia estadia = new FrameEstadia();
     private FrameAlimentacion alimentacion = new FrameAlimentacion();
     private FrameRevisar revisar = new FrameRevisar();
-
-    public Reservacion(Cliente cliente) {
-
+    
+    public Reservacion(Cliente cliente, Guardar guardar) {
+        
         initComponents();
+        this.guardar = guardar;
+        guardar.setVisible(true);
         lblNombre.setText(cliente.getNombre() + " " + cliente.getApellido());
         lblUsuario.setText(cliente.getUsuario());
         panelNombre.setToolTipText("Click para cerrar sesion");
         setTitle("RESERVACION");
-
+        
     }
-
+    
     public Reservacion() {
         initComponents();
-        new Guardar().setVisible(true);
+        
+        guardar = new Guardar();
+        guardar.setVisible(true);
         setTitle("RESERVACION");
         setLocationRelativeTo(null);
         panelNombre.setToolTipText("Click para cerrar sesion");
@@ -161,10 +166,7 @@ public class Reservacion extends javax.swing.JFrame {
     }//GEN-LAST:event_opcGuardarActionPerformed
 
     private void opcionHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionHotelActionPerformed
-
         cambioFrame(1);
-
-
     }//GEN-LAST:event_opcionHotelActionPerformed
 
     private void opcHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcHabitacionesActionPerformed
@@ -192,37 +194,46 @@ public class Reservacion extends javax.swing.JFrame {
     }//GEN-LAST:event_opcEstadiaActionPerformed
 
     private void panelNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNombreMouseClicked
-        System.out.println(JOptionPane.showConfirmDialog(null, "Desea cerrar cesion") + "");
+        if (JOptionPane.showConfirmDialog(null, "Desea cerrar cesion") == 0) {
+            new Bienvenida().setVisible(true);
+            guardar.dispose();
+            dispose();
+            
+        }
     }//GEN-LAST:event_panelNombreMouseClicked
-
+    
     private void cambioFrame(int i) {
         panelGeneral.removeAll();
         switch (i) {
             case 1:
                 panelGeneral.add(hotel);
                 contador++;
-
+                
                 break;
-
+            
             case 2:
-
-                cnx.obtener();
-                int codigo = Integer.parseInt(new Tabla(cnx).buscarString("codigo", "edificio", "nombre", Guardar.lblHotel.getText()).toString());
-                panelGeneral.add(new FrameHabitacion(codigo));
-                contador++;
-
+                try {
+                    cnx.obtener();
+                    int codigo = Integer.parseInt(new Tabla(cnx).buscarString("codigo", "edificio", "nombre", Guardar.lblHotel.getText()).toString());
+                    panelGeneral.add(new FrameHabitacion(codigo));
+                    contador++;
+                    
+                } catch (Exception e) {
+                    jMenu3.setSelected(false);
+                    JOptionPane.showMessageDialog(null, "Seleccione un hotel");
+                }
                 break;
-
+            
             case 3:
                 panelGeneral.add(estadia);
                 contador++;
                 break;
-
+            
             case 4:
                 panelGeneral.add(alimentacion);
                 contador++;
                 break;
-
+            
             case 5:
                 panelGeneral.add(revisar);
                 contador++;

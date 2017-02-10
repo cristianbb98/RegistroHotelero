@@ -150,6 +150,7 @@ public class FrameEdificio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_salinasActionPerformed
 
     private void colocar(String nombre) {
+        
         def.addElement("codigo");
         Guardar.lblHotel.setText(null);
         Guardar.precioHotel.setText(null);
@@ -159,9 +160,8 @@ public class FrameEdificio extends javax.swing.JInternalFrame {
         Guardar.precioAlimentacion.setText(null);
         Guardar.precioTotal.setText((0.00) + "");
         Guardar.lblHotel.setText(nombre);
-
         Guardar.precioHotel.setText(((double) (tabla.buscarString(DATO, TABLA, "nombre", nombre))) + "");
-
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

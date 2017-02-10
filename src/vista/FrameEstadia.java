@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista;
 
 import java.text.SimpleDateFormat;
@@ -14,12 +9,12 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
     private SimpleDateFormat sdf = new SimpleDateFormat("dd");
     private SimpleDateFormat sdf2 = new SimpleDateFormat("MM");
     private SimpleDateFormat sdf3 = new SimpleDateFormat("YYYY");
-    private Date fechaMin = new Date();
-    private int contador = 0;
+    private int diasReserva = 0;
 
     public FrameEstadia() {
         initComponents();
         this.setTitle("Seleccione dias para su estadia");
+        lblconfirmacion.setText("Usted esta por reservar " + 0 + " para su estadia");
 
     }
 
@@ -43,8 +38,10 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
         dateSalida = new com.toedter.calendar.JDateChooser();
         jPanel5 = new javax.swing.JPanel();
         lblconfirmacion = new javax.swing.JLabel();
+        precio = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         btnverificar = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(438, 493));
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -96,6 +93,8 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 154, 0, 157);
         jPanel2.add(jLabel1, gridBagConstraints);
+
+        dateSalida.setMinSelectableDate(new Date());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -108,19 +107,24 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
 
         panelFechas.add(jPanel4);
 
-        jPanel5.setPreferredSize(new java.awt.Dimension(620, 20));
-        jPanel5.setLayout(new java.awt.CardLayout());
+        jPanel5.setPreferredSize(new java.awt.Dimension(620, 100));
+        jPanel5.setLayout(null);
 
         lblconfirmacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblconfirmacion.setPreferredSize(new java.awt.Dimension(34, 10));
-        jPanel5.add(lblconfirmacion, "card2");
+        jPanel5.add(lblconfirmacion);
+        lblconfirmacion.setBounds(0, 0, 590, 30);
+
+        precio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel5.add(precio);
+        precio.setBounds(0, 40, 590, 30);
 
         panelFechas.add(jPanel5);
 
         jPanel6.setPreferredSize(new java.awt.Dimension(620, 40));
         jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
 
-        btnverificar.setText("Guardar");
+        btnverificar.setText("Verificar");
         btnverificar.setMaximumSize(new java.awt.Dimension(3, 3));
         btnverificar.setPreferredSize(new java.awt.Dimension(73, 25));
         btnverificar.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +134,15 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
         });
         jPanel6.add(btnverificar);
 
+        btnguardar.setText("Guardar");
+        btnguardar.setEnabled(false);
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnguardar);
+
         panelFechas.add(jPanel6);
 
         getContentPane().add(panelFechas, "card2");
@@ -138,41 +151,126 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnverificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverificarActionPerformed
-        int añoLL = Integer.parseInt(sdf3.format(dateLLegada.getDate()));
-        int añoS = Integer.parseInt(sdf3.format(dateSalida.getDate()));
-        int mesLL = Integer.parseInt(sdf2.format(dateLLegada.getDate()));
-        int mesS = Integer.parseInt(sdf2.format(dateSalida.getDate()));
-        int diaLL = Integer.parseInt(sdf.format(dateLLegada.getDate()));
-        int diaS = Integer.parseInt(sdf.format(dateSalida.getDate()));
+        btnguardar.setEnabled(true);
+        btnverificar.setEnabled(false);
+        int anioLL = 0;
+        int anioS = 0;
+        int mesLL = 0;
+        int mesS = 0;
+        int diaLL = 0;
+        int diaS = 0;
+        try {
+            anioLL = Integer.parseInt(sdf3.format(dateLLegada.getDate()));
+            anioS = Integer.parseInt(sdf3.format(dateSalida.getDate()));
+            mesLL = Integer.parseInt(sdf2.format(dateLLegada.getDate()));
+            mesS = Integer.parseInt(sdf2.format(dateSalida.getDate()));
+            diaLL = Integer.parseInt(sdf.format(dateLLegada.getDate()));
+            diaS = Integer.parseInt(sdf.format(dateSalida.getDate()));
+        } catch (Exception e) {
+            btnguardar.setEnabled(false);
+            btnverificar.setEnabled(true);
+        } finally {
+            try {
+                if (dateSalida.getDate().before(dateLLegada.getDate()) || dateSalida.getDate().equals(dateLLegada.getDate())) {
+                    btnguardar.setEnabled(false);
+                    btnverificar.setEnabled(true);
+                    JOptionPane.showMessageDialog(null, "Fechas de reservacion incorrecta");
+                    diasReserva = 0;
+                    lblconfirmacion.setText("Usted esta por reservar " + 0 + " dias para su estadia");
 
-        System.out.println((añoS - añoLL) + "");
-        System.out.println(mesLL + "");
-        System.out.println(mesS + "");
-        System.out.println(diaLL + "");
-        System.out.println(diaS + "");
+                } else if ((anioS - anioLL == 0) && (mesS - mesLL == 0)) {
+                    if (mesS - mesLL == 0) {
+                        if (diaS - diaLL < 8) {
+                            diasReserva = diaS - diaLL;
+                            precio.setText("Costo de la reservacion: $" + (Double.parseDouble(Guardar.precioHabitaciones.getText()) * diasReserva) + "");
+                            lblconfirmacion.setText("Usted esta por reservar " + (diaS - diaLL) + " dias para su estadia");
+                        } else {
+                            btnguardar.setEnabled(false);
+                            btnverificar.setEnabled(true);
+                            JOptionPane.showMessageDialog(null, "no se permite mas de 7 dias");
+                            diasReserva = 0;
+                            lblconfirmacion.setText("Usted esta por reservar " + 0 + " dias para su estadia");
 
-        if (añoS - añoLL != 0) {
-            JOptionPane.showMessageDialog(null, "No se permite reservaciones mas de un año");
-        } else if (mesS - mesLL != 0) {
-            JOptionPane.showMessageDialog(null, "No se permite reservaciones mas de un mes");
-        } else if (dateSalida.getDate().getDay() - dateSalida.getDate().getDay() > 7 || dateSalida.getDate().getDay() - dateSalida.getDate().getDay() < 0) {
-            JOptionPane.showMessageDialog(null, "No se permite reservaciones mas de una semana");
+                        }
+                    }
 
-        } else {
-            lblconfirmacion.setText("Usted ha reservado" + (diaS-diaLL) + " para su estadia");
+                } else if ((mesS - mesLL == 1) && (anioS - anioLL == 0)) {
 
+                    if (mesLL == 1 || mesLL == 3 || mesLL == 5 || mesLL == 7 || mesLL == 9 || mesLL == 11) {
+                        if (31 - diaS + diaLL < 8) {
+                            diasReserva = 31 - diaLL + diaS;
+                            precio.setText("Costo de la reservacion: $" + (Double.parseDouble(Guardar.precioHabitaciones.getText()) * diasReserva) + "");
+                            lblconfirmacion.setText("Usted esta por reservar " + (31 - diaLL + diaS) + " dias para su estadia");
+
+                        } else {
+                            btnguardar.setEnabled(false);
+                            btnverificar.setEnabled(true);
+                            JOptionPane.showMessageDialog(null, "No se puede reservar mas de 7 días");
+                            diasReserva = 0;
+                            lblconfirmacion.setText("Usted esta por reservar " + 0 + " dias para su estadia");
+                        }
+
+                    } else if (mesLL == 4 || mesLL == 6 || mesLL == 8 || mesLL == 10 || mesLL == 12) {
+
+                        if (30 - diaLL + diaS < 8) {
+                            diasReserva = 30 - diaLL + diaS;
+                            precio.setText("Costo de la reservacion: $" + (Double.parseDouble(Guardar.precioHabitaciones.getText()) * diasReserva) + "");
+                            lblconfirmacion.setText("Usted esta por reservar " + (30 - diaLL + diaS) + " dias para su estadia");
+
+                        } else {
+                            btnguardar.setEnabled(false);
+                            btnverificar.setEnabled(true);
+                            JOptionPane.showMessageDialog(null, "No se puede reservar mas de 7 días");
+                            diasReserva = 0;
+                            lblconfirmacion.setText("Usted esta por reservar " + 0 + " dias para su estadia");
+                        }
+
+                    } else if (mesLL == 2) {
+
+                        if (28 - diaLL + diaS < 8) {
+                            diasReserva = 28 - diaLL + diaS;
+                            precio.setText("Costo de la reservacion: $" + (Double.parseDouble(Guardar.precioHabitaciones.getText()) * diasReserva) + "");
+                            lblconfirmacion.setText("Usted esta por reservar " + (28 - diaLL + diaS) + " dias para su estadia");
+                        } else {
+                            btnguardar.setEnabled(false);
+                            btnverificar.setEnabled(true);
+                            JOptionPane.showMessageDialog(null, "No se puede reservar mas de 7 días");
+                            diasReserva = 0;
+                            lblconfirmacion.setText("Usted esta por reservar " + 0 + " dias para su estadia");
+                        }
+                    }
+                } else {
+                    btnguardar.setEnabled(false);
+                    btnverificar.setEnabled(true);
+                    JOptionPane.showMessageDialog(null, "No se puede reservar mas de 7 días");
+                    diasReserva = 0;
+                    lblconfirmacion.setText("Usted esta por reservar " + 0 + " dias para su estadia");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Fechas de reservacion incorrecta");
+                btnguardar.setEnabled(false);
+                btnverificar.setEnabled(true);
+            }
         }
-
     }//GEN-LAST:event_btnverificarActionPerformed
 
-//   private Date minimo() {
-//                revalidate();
-//                Date dateMin = new Date();
-//                dateMin = dateLLegada.getDate();
-//                return dateMin;
-//            }
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        btnguardar.setEnabled(false);
+        btnverificar.setEnabled(true);
+
+        try {
+            Guardar.lblEstadia.setText(diasReserva + "");
+            Guardar.precioEstadia.setText((Double.parseDouble(Guardar.precioHabitaciones.getText()) * diasReserva) + "");//           
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Seleciones una habitacion");
+        }
+
+    }//GEN-LAST:event_btnguardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnverificar;
     private com.toedter.calendar.JDateChooser dateLLegada;
     private com.toedter.calendar.JDateChooser dateSalida;
@@ -185,5 +283,6 @@ public class FrameEstadia extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblconfirmacion;
     private javax.swing.JPanel panelFechas;
+    private javax.swing.JLabel precio;
     // End of variables declaration//GEN-END:variables
 }

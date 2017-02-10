@@ -166,8 +166,8 @@ public class Tabla {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas");
             } finally {
                 if (user.equals(usuario) && pass.equals(clave)) {
-                    new Reservacion(new Cliente(nombre, apellido, ci, user, pass)).setVisible(true);
-                    new Guardar().setVisible(true);
+                    new Reservacion(new Cliente(nombre, apellido, ci, user, pass), new Guardar()).setVisible(true);
+                    
 
                 } else {
 

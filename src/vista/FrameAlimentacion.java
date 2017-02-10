@@ -5,6 +5,8 @@
  */
 package vista;
 
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author Toshiba
@@ -12,10 +14,12 @@ package vista;
 public class FrameAlimentacion extends javax.swing.JInternalFrame {
 
     private int contador_radiobutton = 0;
+    private JRadioButton boton = new JRadioButton();
 
     public FrameAlimentacion() {
         initComponents();
         this.setTitle("ALIMENTACION");
+
     }
 
     /**
@@ -36,13 +40,13 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         rbtcompleto = new javax.swing.JRadioButton();
         rbtninguno = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        precioAlmuerzo = new javax.swing.JLabel();
+        precioDesayuno = new javax.swing.JLabel();
+        precioMerienda = new javax.swing.JLabel();
+        precioCompleto = new javax.swing.JLabel();
+        precioNinguno = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        aceptar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(438, 493));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
@@ -53,6 +57,7 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         rbtdesayuno.setText("Desayuno");
+        rbtdesayuno.setName("desayuno"); // NOI18N
         rbtdesayuno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtdesayunoActionPerformed(evt);
@@ -68,6 +73,7 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         jPanel1.add(rbtdesayuno, gridBagConstraints);
 
         rbtmerienda.setText("Merienda");
+        rbtmerienda.setName("merienda"); // NOI18N
         rbtmerienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtmeriendaActionPerformed(evt);
@@ -83,6 +89,7 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         jPanel1.add(rbtmerienda, gridBagConstraints);
 
         rbtalmuerzo.setText("Almuerzo");
+        rbtalmuerzo.setName("almerzo"); // NOI18N
         rbtalmuerzo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtalmuerzoActionPerformed(evt);
@@ -98,6 +105,7 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         jPanel1.add(rbtalmuerzo, gridBagConstraints);
 
         rbtcompleto.setText("Completo");
+        rbtcompleto.setName("completo"); // NOI18N
         rbtcompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtcompletoActionPerformed(evt);
@@ -113,6 +121,7 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         jPanel1.add(rbtcompleto, gridBagConstraints);
 
         rbtninguno.setText("Ninguno");
+        rbtninguno.setName("ninguno"); // NOI18N
         rbtninguno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtningunoActionPerformed(evt);
@@ -131,7 +140,8 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
 
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText("+ $ 8,00");
+        precioAlmuerzo.setText("+ $ 8,00");
+        precioAlmuerzo.setName("8.00"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -139,9 +149,10 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         gridBagConstraints.ipady = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 65, 0, 58);
-        jPanel3.add(jLabel1, gridBagConstraints);
+        jPanel3.add(precioAlmuerzo, gridBagConstraints);
 
-        jLabel4.setText("+ $ 5,00");
+        precioDesayuno.setText("+ $ 5,00");
+        precioDesayuno.setName("5.00"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -149,9 +160,10 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         gridBagConstraints.ipady = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(37, 65, 0, 58);
-        jPanel3.add(jLabel4, gridBagConstraints);
+        jPanel3.add(precioDesayuno, gridBagConstraints);
 
-        jLabel7.setText("+ $ 8,00");
+        precioMerienda.setText("+ $ 8,00");
+        precioMerienda.setName("8.00"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -159,9 +171,10 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         gridBagConstraints.ipady = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 65, 0, 58);
-        jPanel3.add(jLabel7, gridBagConstraints);
+        jPanel3.add(precioMerienda, gridBagConstraints);
 
-        jLabel8.setText("+ $ 17,00");
+        precioCompleto.setText("+ $ 17,00");
+        precioCompleto.setName("17.00"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -169,9 +182,10 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         gridBagConstraints.ipady = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 65, 0, 58);
-        jPanel3.add(jLabel8, gridBagConstraints);
+        jPanel3.add(precioCompleto, gridBagConstraints);
 
-        jLabel9.setText("+ $ 0,00");
+        precioNinguno.setText("+ $ 0,00");
+        precioNinguno.setName("0.00"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -179,14 +193,19 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
         gridBagConstraints.ipady = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 65, 62, 58);
-        jPanel3.add(jLabel9, gridBagConstraints);
+        jPanel3.add(precioNinguno, gridBagConstraints);
 
         jPanel4.add(jPanel3);
 
         getContentPane().add(jPanel4);
 
-        jButton2.setText("Aceptar");
-        jPanel2.add(jButton2);
+        aceptar.setText("Aceptar");
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(aceptar);
 
         getContentPane().add(jPanel2);
 
@@ -194,26 +213,31 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbtdesayunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtdesayunoActionPerformed
-        radioButton(1);
+        radioButton(1, rbtdesayuno);
     }//GEN-LAST:event_rbtdesayunoActionPerformed
 
     private void rbtmeriendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtmeriendaActionPerformed
-        radioButton(1);
+        radioButton(1, rbtmerienda);
     }//GEN-LAST:event_rbtmeriendaActionPerformed
 
     private void rbtalmuerzoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtalmuerzoActionPerformed
-        radioButton(1);
+        radioButton(1, rbtalmuerzo);
     }//GEN-LAST:event_rbtalmuerzoActionPerformed
 
     private void rbtcompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtcompletoActionPerformed
-        radioButton(2);
+        radioButton(2, rbtcompleto);
     }//GEN-LAST:event_rbtcompletoActionPerformed
 
     private void rbtningunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtningunoActionPerformed
-        radioButton(3);
+        radioButton(3, rbtninguno);
     }//GEN-LAST:event_rbtningunoActionPerformed
 
-    private void radioButton(int contador) {
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        System.out.println(boton.getText());
+    }//GEN-LAST:event_aceptarActionPerformed
+
+    private void radioButton(int contador, JRadioButton btn) {
+        boton = btn;
         switch (contador) {
 
             case 1:
@@ -246,16 +270,16 @@ public class FrameAlimentacion extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton aceptar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel precioAlmuerzo;
+    private javax.swing.JLabel precioCompleto;
+    private javax.swing.JLabel precioDesayuno;
+    private javax.swing.JLabel precioMerienda;
+    private javax.swing.JLabel precioNinguno;
     private javax.swing.JRadioButton rbtalmuerzo;
     private javax.swing.JRadioButton rbtcompleto;
     private javax.swing.JRadioButton rbtdesayuno;

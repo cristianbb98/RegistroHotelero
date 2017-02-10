@@ -274,7 +274,7 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No puede reservar mas de 2 Habitaciones");
                 btn.setSelected(false);
 
-            } else if (contador <=2) {
+            } else if (contador <= 2) {
                 model.addElement(btn.getName());
                 contador++;
                 btn.setSelected(true);
@@ -291,10 +291,9 @@ public class FrameHabitacion extends javax.swing.JInternalFrame {
         }
         Guardar.cbxHabitaciones.setModel(model);
         String cod1 = getCodigo(model.getElementAt(0));
-        System.out.println(cod1);
 
         if (contador > 1) {
-            System.out.println(getCodigo(model.getElementAt(1)));
+
             Guardar.precioHabitaciones.setText((((double) (tabla.buscarString("precioTipo", "habitacion", "codigo_habitacion", getCodigo(model.getElementAt(1))))) + ((double) (tabla.buscarString("precioTipo", "habitacion", "codigo_habitacion", cod1)))) + "");
 //            Guardar.precioHabitaciones.setText((((double) (tabla.buscarNumero("precioTipo", "habitacion", "codigo_habitacion", cod1))) + ((double) (tabla.buscarNumero("precioTipo", "habitacion", "codigo_habitacion", cod2)))) + "");
         } else if (contador == 1) {
